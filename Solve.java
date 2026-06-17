@@ -692,7 +692,7 @@
 import java.util.*;
 public class Solve{
     public static void main(String[] args) {
-        String s="animuthyam";
+        String s="Communication";
         int n=s.length();
         int sl=3;
         int ans=0;
