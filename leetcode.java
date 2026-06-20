@@ -151,7 +151,57 @@
 // }
 
 
-//121
+//Leetcode problem-1984
+
+// import java.util.*;
+// class leetcode {
+//     public static int minimumDifference(int[] nums, int k) {
+//         Arrays.sort(nums);
+//         int ans=Integer.MAX_VALUE;
+//         int l=0;
+//         for(int r=0;r<nums.length;r++){
+//             if(r-l==k){
+//                 l++;
+//             }
+//             if(r-l+1==k){
+//                 int temp=nums[r]-nums[l];
+//                 ans=Math.min(ans,temp);
+//             }
+//         }
+//         return ans;
+        
+//     }
+//     public static void main(String[] args) {
+//         int nums[]={0,4,3,1};
+//         int result=minimumDifference(nums,2);
+//         System.out.println(result);
+//     }
+// }
+
+
+//Leetcode problem-26
+class leetcode{
+    public static int removeDuplicates(int[] nums) {
+        int count=0;
+        for(int i=0;i<nums.length;i++){
+            if(i<nums.length-1 && nums[i]==nums[i+1]){
+                continue;
+            }
+            else{
+                nums[count]=nums[i];
+                count++;
+            }
+        }
+        return count;
+        
+    }
+    public static void main(String[] args) {
+        int nums[]={1,1,2,3,3,3,4};
+        int result=removeDuplicates(nums);
+        System.out.println(result);
+    }
+
+}
 
 
 
