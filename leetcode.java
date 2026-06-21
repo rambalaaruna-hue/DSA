@@ -180,29 +180,75 @@
 
 
 //Leetcode problem-26
-class leetcode{
-    public static int removeDuplicates(int[] nums) {
-        int count=0;
-        for(int i=0;i<nums.length;i++){
-            if(i<nums.length-1 && nums[i]==nums[i+1]){
-                continue;
-            }
-            else{
-                nums[count]=nums[i];
-                count++;
-            }
+// class leetcode{
+//     public static int removeDuplicates(int[] nums) {
+//         int count=0;
+//         for(int i=0;i<nums.length;i++){
+//             if(i<nums.length-1 && nums[i]==nums[i+1]){
+//                 continue;
+//             }
+//             else{
+//                 nums[count]=nums[i];
+//                 count++;
+//             }
+//         }
+//         return count;
+        
+//     }
+//     public static void main(String[] args) {
+//         int nums[]={1,1,2,3,3,3,4};
+//         int result=removeDuplicates(nums);
+//         System.out.println(result);
+//     }
+
+// }
+
+
+//Leetcode-2144
+// import java.util.*;
+// public class leetcode{
+//      public static int minimumCost(int[] cost) {
+//         Arrays.sort(cost);
+//         int took=0;
+//         int minCost=0;
+//        for(int i=cost.length-1;i>=0;i--){
+//         if(took==2){
+//             took=0;
+//         }
+//         else{
+//             minCost+=cost[i];
+//             took ++;
+//         }
+//        }
+//         return minCost;
+//     }
+//     public static void main(String[] args) {
+//         int cost[]={2,9,7,6,2,5};
+//         int result=minimumCost(cost);
+//         System.out.println(result);
+//     }    
+        
+// }
+
+
+//Leetcode-561
+
+import java.util.Arrays;
+
+public class leetcode{
+     public static int arrayPairSum(int[] nums) {
+        Arrays.sort(nums);
+        int ans=0;
+        for(int i=0;i<nums.length;i=i+2){
+            ans+=nums[i];
         }
-        return count;
+        return ans;
         
     }
     public static void main(String[] args) {
-        int nums[]={1,1,2,3,3,3,4};
-        int result=removeDuplicates(nums);
+        int nums[]={1,4,3,2};
+        int result=arrayPairSum(nums);
         System.out.println(result);
     }
-
 }
-
-
-
 
