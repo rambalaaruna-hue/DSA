@@ -689,25 +689,167 @@
 //    }
 // }
 
-import java.util.*;
+// import java.util.*;
+// public class Solve{
+//     public static void main(String[] args) {
+//         String s="Communication";
+//         int n=s.length();
+//         int sl=3;
+//         int ans=0;
+//         for(int i=0;i<n-sl+1;i++){
+//             int j=i+sl-1;
+//             int temp=0;
+//                 for(int k=i;k<=j;k++){
+//                     temp+=(int)s.charAt(k);
+//                     System.out.print((int)s.charAt(k));
+//                 }
+//                 ans=Math.max(ans,temp);
+//                 System.out.println();
+            
+//         }
+//         System.out.println(ans);
+        
+//     }
+// }
+
+
+// public class Solve{
+
+//     public static void main(String[] args) {
+//         int arr[]={1,2,3,1,4};
+//         int l=0;
+//         int ans=0;
+//         int temp=0;
+//         int threshold=6;
+//         int k=3;
+//         for(int r=0;r<arr.length;r++){
+//             temp+=arr[r];
+//             if(r-l==k){
+//                 temp=temp-arr[l];
+//                 l++;
+//             }
+//                 if(r-l+1==k){
+//                     if(temp>=threshold){
+//                         ans++;
+//                     }
+//                 }
+            
+
+//         }
+//         System.out.println(ans);
+//     }
+// }
+
+
+
+// public class Solve{
+//     public static void main(String[] args) {
+//         int arr[]={1,8,3,7,5,6};
+//         int l=0;
+//         int temp=0;
+//         int k=3;
+//         int max=Integer.MIN_VALUE;
+//         for(int r=0;r<arr.length;r++){
+//             temp+=arr[r];
+//             if(r-l==k){
+//                 temp-=arr[l];
+//                 l++;
+//             }
+//             if(r-l+1==k){
+//                 max=Math.max(max,temp);
+//             }
+//         }
+//         System.out.println(max);
+//     }
+// }
+
+
+// public class Solve{
+//     public static void main(String[] args) {
+//         int arr[]={1,2,3,2,9};
+//         int l=0;
+//         int temp=0;
+//         int ans=0;
+//         int k=10;
+//         for(int r=0;r<arr.length;r++){
+//             temp+=arr[r];
+//             while(temp>10){
+//                 temp-=arr[l];
+//                 l++;
+//             }
+//             ans=Math.max(ans,r-l+1);
+//         }
+//         System.out.println(ans);
+//     }
+// }
+
+// public class Solve{
+//     public static void main(String[] args) {
+//         int arr[]={0,1,3,1,1,6,7,1,0,1};
+//         int l=0;
+//         int k=2;
+//         int temp=0;
+//         int ans=0;
+//         for(int r=0;r<arr.length;r++){
+//             if(arr[r]==1){
+//                 temp++;
+//             }
+//             while(temp>k){
+//                 if(arr[l]==1){
+//                     temp--;
+//                 }
+//                 l++;
+//             }
+//             ans=Math.max(ans,r-l+1);
+//         }
+//         System.out.println(ans);
+//     }
+// }
+
+
+// public class Solve{
+//     public static void main(String[] args) {
+//         int arr[]={12,1,3,1,1,6,7,1,8,1};
+//         int l=0;
+//         int k=2;
+//         int temp=0;
+//         int ans=0;
+//         for(int r=0;r<arr.length;r++){
+//             if(arr[r]%2 != 0){
+//                 temp++;
+//             }
+//             while(temp>k){
+//                 if(arr[l]%2 != 0){
+//                     temp--;
+//                 }
+//                 l++;
+//             }
+//             ans=Math.max(ans,r-l+1);
+//         }
+//         System.out.println(ans);
+//     }
+// }
+
+
 public class Solve{
     public static void main(String[] args) {
-        String s="Communication";
-        int n=s.length();
-        int sl=3;
+        int arr[]={1,1,0,1,0,0,0};
+        int l=0;
+        int k=2;
+        int temp=0;
         int ans=0;
-        for(int i=0;i<n-sl+1;i++){
-            int j=i+sl-1;
-            int temp=0;
-                for(int k=i;k<=j;k++){
-                    temp+=(int)s.charAt(k);
-                    System.out.print((int)s.charAt(k));
+        for(int r=0;r<arr.length;r++){
+            if(arr[r]== 0){
+                temp++;
+            }
+            while(temp>k){
+                if(arr[l]== 0){
+                    temp--;
                 }
-                ans=Math.max(ans,temp);
-                System.out.println();
-            
+                l++;
+            }
+            ans=Math.max(ans,r-l+1);
         }
         System.out.println(ans);
-        
     }
 }
