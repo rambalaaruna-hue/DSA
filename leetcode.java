@@ -233,22 +233,57 @@
 
 //Leetcode-561
 
-import java.util.Arrays;
+// import java.util.Arrays;
 
+// public class leetcode{
+//      public static int arrayPairSum(int[] nums) {
+//         Arrays.sort(nums);
+//         int ans=0;
+//         for(int i=0;i<nums.length;i=i+2){
+//             ans+=nums[i];
+//         }
+//         return ans;
+        
+//     }
+//     public static void main(String[] args) {
+//         int nums[]={1,4,3,2};
+//         int result=arrayPairSum(nums);
+//         System.out.println(result);
+//     }
+// }
+
+
+//Leetcode-2024
 public class leetcode{
-     public static int arrayPairSum(int[] nums) {
-        Arrays.sort(nums);
+        public static int maxConsecutiveAnswers(String answerKey, int k) {
+        int l=0;
+        int cnt0=0;
+        int cnt1=0;
         int ans=0;
-        for(int i=0;i<nums.length;i=i+2){
-            ans+=nums[i];
+        for(int r=0;r<answerKey.length();r++){
+            if(answerKey.charAt(r)=='T'){
+                cnt0++;
+            }else{
+                cnt1++;
+
+            }
+            while(Math.min(cnt0,cnt1)>k){
+                if(answerKey.charAt(l)=='T'){
+                    cnt0--;
+                }else{
+                    cnt1--;
+                }
+                l++;
+            }
+            ans=Math.max(ans,r-l+1);
         }
         return ans;
-        
     }
+    
     public static void main(String[] args) {
-        int nums[]={1,4,3,2};
-        int result=arrayPairSum(nums);
+        String answerKey="TFFFTFFTTT";
+        int k=2;
+        int result=maxConsecutiveAnswers(answerKey,k);
         System.out.println(result);
     }
 }
-
