@@ -306,15 +306,32 @@
 // }
 
 //Passing HashMap as Parameter
+// import java.util.*;
+// public class Concepts{
+//     public static void fun(HashMap<Integer,Integer>hm){
+//         System.out.println(hm);
+//     }
+//     public static void main(String[] args) {
+//         HashMap<Integer,Integer> hm=new HashMap<>();
+//         hm.put(5,1);
+//         hm.put(4,8);
+//         fun(hm);
+//     }
+// }
+
+//Comapring Two Values in a HashMap
 import java.util.*;
 public class Concepts{
     public static void fun(HashMap<Integer,Integer>hm){
         System.out.println(hm);
+        int a=hm.get(5);
+        int b=hm.get(4);
+        System.out.println(a==b);
     }
     public static void main(String[] args) {
         HashMap<Integer,Integer> hm=new HashMap<>();
-        hm.put(5,1);
-        hm.put(4,8);
+        hm.put(5,128);
+        hm.put(4,128);
         fun(hm);
     }
 }
