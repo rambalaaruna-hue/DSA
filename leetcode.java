@@ -290,35 +290,66 @@
 
 
 //Leetcode-3
-import java.util.HashSet;
+// import java.util.HashSet;
+
+// public class leetcode{
+//     public  static int lengthOfLongestSubstring(String s) {
+//         HashSet<Character> hs=new HashSet<>();
+//         int l=0;
+//         int ans=0;
+//         for(int r=0;r<s.length();r++){
+//             char ch=s.charAt(r);
+//             if(!hs.contains(ch)){
+//                 hs.add(ch);
+//             }else{
+//                 while(hs.contains(ch)){
+//                     hs.remove(s.charAt(l));
+//                     l++;
+//                 }
+//                 hs.add(ch);
+//             }
+//             ans=Math.max(ans,r-l+1);
+//         }
+//         return ans;
+        
+//     }
+//     public static void main(String[] args) {
+//         String s="bbbbb";
+//         int result=lengthOfLongestSubstring(s);
+//         System.out.println(result);
+//     }
+// }
+
+
+//Leetcode-904
+
+import java.util.HashMap;
 
 public class leetcode{
-    public  static int lengthOfLongestSubstring(String s) {
-        HashSet<Character> hs=new HashSet<>();
+    public static int totalFruit(int[] fruits) {
+        HashMap<Integer,Integer> hm=new HashMap<>();
         int l=0;
         int ans=0;
-        for(int r=0;r<s.length();r++){
-            char ch=s.charAt(r);
-            if(!hs.contains(ch)){
-                hs.add(ch);
-            }else{
-                while(hs.contains(ch)){
-                    hs.remove(s.charAt(l));
-                    l++;
-                }
-                hs.add(ch);
+        for(int r=0;r<fruits.length;r++){
+        int val=fruits[r];
+        hm.put(val,hm.getOrDefault(val,0)+1);
+
+        while(hm.size()>2){
+            int lval=fruits[l];
+            hm.put(lval,hm.get(lval)-1);
+            if(hm.get(lval)==0){
+                hm.remove(lval);
             }
+            l++;
+        }
             ans=Math.max(ans,r-l+1);
         }
         return ans;
         
     }
     public static void main(String[] args) {
-        String s="bbbbb";
-        int result=lengthOfLongestSubstring(s);
+        int fruits[]={0,1,2,2};
+        int result=totalFruit(fruits);
         System.out.println(result);
     }
 }
-
-
-g
