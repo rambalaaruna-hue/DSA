@@ -287,23 +287,35 @@
 
 
 //Return statement
+// public class Concepts{
+//     public static boolean fun(int[] arra,int[] arrb){
+//         boolean valid=true;
+//         for(int i=0;i<arra.length;i++){
+//             if(arra[i]!=arrb[i]){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+//     public static void main(String[] args) {
+//         int[] arra={1,2,4};
+//         int[] arrb={1,2,5};
+//         boolean ans=fun(arra,arrb);
+//         System.out.println(ans);
+//     }
+// }
+
+//Passing HashMap as Parameter
+import java.util.*;
 public class Concepts{
-    public static boolean fun(int[] arra,int[] arrb){
-        boolean valid=true;
-        for(int i=0;i<arra.length;i++){
-            if(arra[i]!=arrb[i]){
-                return false;
-            }
-        }
-        return true;
+    public static void fun(HashMap<Integer,Integer>hm){
+        System.out.println(hm);
     }
     public static void main(String[] args) {
-        int[] arra={1,2,4};
-        int[] arrb={1,2,5};
-        boolean ans=fun(arra,arrb);
-        System.out.println(ans);
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        hm.put(5,1);
+        hm.put(4,8);
+        fun(hm);
     }
 }
-
-
 
