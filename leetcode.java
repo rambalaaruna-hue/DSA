@@ -254,36 +254,71 @@
 
 
 //Leetcode-2024
-public class leetcode{
-        public static int maxConsecutiveAnswers(String answerKey, int k) {
-        int l=0;
-        int cnt0=0;
-        int cnt1=0;
-        int ans=0;
-        for(int r=0;r<answerKey.length();r++){
-            if(answerKey.charAt(r)=='T'){
-                cnt0++;
-            }else{
-                cnt1++;
+// public class leetcode{
+//         public static int maxConsecutiveAnswers(String answerKey, int k) {
+//         int l=0;
+//         int cnt0=0;
+//         int cnt1=0;
+//         int ans=0;
+//         for(int r=0;r<answerKey.length();r++){
+//             if(answerKey.charAt(r)=='T'){
+//                 cnt0++;
+//             }else{
+//                 cnt1++;
 
-            }
-            while(Math.min(cnt0,cnt1)>k){
-                if(answerKey.charAt(l)=='T'){
-                    cnt0--;
-                }else{
-                    cnt1--;
+//             }
+//             while(Math.min(cnt0,cnt1)>k){
+//                 if(answerKey.charAt(l)=='T'){
+//                     cnt0--;
+//                 }else{
+//                     cnt1--;
+//                 }
+//                 l++;
+//             }
+//             ans=Math.max(ans,r-l+1);
+//         }
+//         return ans;
+//     }
+    
+//     public static void main(String[] args) {
+//         String answerKey="TFFFTFFTTT";
+//         int k=2;
+//         int result=maxConsecutiveAnswers(answerKey,k);
+//         System.out.println(result);
+//     }
+// }
+
+
+//Leetcode-3
+import java.util.HashSet;
+
+public class leetcode{
+    public  static int lengthOfLongestSubstring(String s) {
+        HashSet<Character> hs=new HashSet<>();
+        int l=0;
+        int ans=0;
+        for(int r=0;r<s.length();r++){
+            char ch=s.charAt(r);
+            if(!hs.contains(ch)){
+                hs.add(ch);
+            }else{
+                while(hs.contains(ch)){
+                    hs.remove(s.charAt(l));
+                    l++;
                 }
-                l++;
+                hs.add(ch);
             }
             ans=Math.max(ans,r-l+1);
         }
         return ans;
+        
     }
-    
     public static void main(String[] args) {
-        String answerKey="TFFFTFFTTT";
-        int k=2;
-        int result=maxConsecutiveAnswers(answerKey,k);
+        String s="bbbbb";
+        int result=lengthOfLongestSubstring(s);
         System.out.println(result);
     }
 }
+
+
+g
