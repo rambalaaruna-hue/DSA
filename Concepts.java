@@ -320,19 +320,54 @@
 // }
 
 //Comapring Two Values in a HashMap
+// import java.util.*;
+// public class Concepts{
+//     public static void fun(HashMap<Integer,Integer>hm){
+//         System.out.println(hm);
+//         int a=hm.get(5);
+//         int b=hm.get(4);
+//         System.out.println(a==b);
+//     }
+//     public static void main(String[] args) {
+//         HashMap<Integer,Integer> hm=new HashMap<>();
+//         hm.put(5,128);
+//         hm.put(4,128);
+//         fun(hm);
+//     }
+// }
+
+
+
+//Comparing Two HashMaps equsl or not
 import java.util.*;
 public class Concepts{
-    public static void fun(HashMap<Integer,Integer>hm){
-        System.out.println(hm);
-        int a=hm.get(5);
-        int b=hm.get(4);
-        System.out.println(a==b);
+    public static boolean fun(HashMap<Integer,Integer>hma,HashMap<Integer,Integer>hmb){
+        System.out.println(hma);
+        System.out.println(hmb);
+        if(hma.size()!=hmb.size()){
+            return false;
+        }
+        for(int key:hma.keySet()){
+            if(!hmb.containsKey(key)){
+                return false;
+            }
+            int a=hma.get(key);
+            int b=hmb.get(key);
+            if(a!=b){
+                return false;
+            }
+        }
+        return true;
+
     }
     public static void main(String[] args) {
-        HashMap<Integer,Integer> hm=new HashMap<>();
-        hm.put(5,128);
-        hm.put(4,128);
-        fun(hm);
+        HashMap<Integer,Integer> hma=new HashMap<>();
+        HashMap<Integer,Integer> hmb=new HashMap<>();
+        hma.put(5,100);
+        hma.put(4,800);
+        hmb.put(5,100);
+        hmb.put(4,800);
+        boolean result=fun(hma,hmb);
+        System.out.println(result);
     }
 }
-
