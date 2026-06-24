@@ -263,25 +263,45 @@
 
 
 //While loop
-import java.util.*;
+// import java.util.*;
+// public class Concepts{
+//     public static void main(String[] args) {
+//         HashSet<Integer> hs=new HashSet<>();
+//         int i=1;
+//         hs.add(2);
+//         hs.add(5);
+//         hs.add(6);
+//         while(i<hs.size()){
+//             System.out.println("Hello");
+//             if(hs.size()>0){
+//                 hs.add(i);
+//             }else{
+//                 hs.add(0);
+//             }
+//             i++;
+//         }
+
+
+//     }
+// }
+
+
+//Return statement
 public class Concepts{
-    public static void main(String[] args) {
-        HashSet<Integer> hs=new HashSet<>();
-        int i=1;
-        hs.add(2);
-        hs.add(5);
-        hs.add(6);
-        while(i<hs.size()){
-            System.out.println("Hello");
-            if(hs.size()>0){
-                hs.add(i);
-            }else{
-                hs.add(0);
+    public static boolean fun(int[] arra,int[] arrb){
+        boolean valid=true;
+        for(int i=0;i<arra.length;i++){
+            if(arra[i]!=arrb[i]){
+                return false;
             }
-            i++;
         }
-
-
+        return true;
+    }
+    public static void main(String[] args) {
+        int[] arra={1,2,4};
+        int[] arrb={1,2,5};
+        boolean ans=fun(arra,arrb);
+        System.out.println(ans);
     }
 }
 
