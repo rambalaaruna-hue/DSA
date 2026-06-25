@@ -323,33 +323,156 @@
 
 //Leetcode-904
 
-import java.util.HashMap;
+// import java.util.HashMap;
 
+// public class leetcode{
+//     public static int totalFruit(int[] fruits) {
+//         HashMap<Integer,Integer> hm=new HashMap<>();
+//         int l=0;
+//         int ans=0;
+//         for(int r=0;r<fruits.length;r++){
+//         int val=fruits[r];
+//         hm.put(val,hm.getOrDefault(val,0)+1);
+
+//         while(hm.size()>2){
+//             int lval=fruits[l];
+//             hm.put(lval,hm.get(lval)-1);
+//             if(hm.get(lval)==0){
+//                 hm.remove(lval);
+//             }
+//             l++;
+//         }
+//             ans=Math.max(ans,r-l+1);
+//         }
+//         return ans;
+        
+//     }
+//     public static void main(String[] args) {
+//         int fruits[]={0,1,2,2};
+//         int result=totalFruit(fruits);
+//         System.out.println(result);
+//     }
+// }
+
+
+// import java.util.*;
+
+// public class leetcode{
+//     public static boolean fun(HashMap<Character,Integer>hm1,HashMap<Character,Integer>hm2){
+//         if(hm1.size()!=hm2.size()){
+//             return false;
+//         }
+//         for(char key:hm1.keySet()){
+//             if(!hm2.containsKey(key)){
+//                 return false;
+//             }
+//             int a=hm1.get(key);
+//             int b=hm2.get(key);
+//             if(a!=b){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+//     public static void main(String[] args) {
+//         String s="cbaebabacd";
+//         String p="abc";
+//         HashMap<Character,Integer> hm1=new HashMap<>();
+//         HashMap<Character,Integer> hm2=new HashMap<>();
+//         List<Integer> li=new ArrayList<>();
+//         for(int i=0;i<p.length();i++){
+//             char c=p.charAt(i);
+//                 hm2.put(c,hm2.getOrDefault(c,0)+1);
+//         }
+//         System.out.println(hm2);
+        
+//         int l=0;
+//         int temp=0;
+//         for(int r=0;r<s.length();r++){
+//             temp+=s.charAt(r);
+//             if(r-l==p.length()){
+//                 temp-=s.charAt(l);
+//                 l++;
+//             }
+//             if(r-l+1==p.length()){
+//                String sub=s.substring(l,r+1);
+//                for(int i=0;i<sub.length();i++){
+//                 char ch=sub.charAt(i);
+//                 hm1.put(ch,hm1.getOrDefault(ch,0)+1);
+//                }
+                
+//             }
+//             boolean valid=fun(hm1,hm2); 
+//             if(valid==true){
+//                 li.add((r-p.length())+1);
+//             }
+//             hm1.clear();
+//         }
+//         System.out.println(hm1);
+//         System.out.println(li);
+//     }
+// }
+
+
+//Leetcode -438
+import java.util.*;
 public class leetcode{
-    public static int totalFruit(int[] fruits) {
-        HashMap<Integer,Integer> hm=new HashMap<>();
-        int l=0;
-        int ans=0;
-        for(int r=0;r<fruits.length;r++){
-        int val=fruits[r];
-        hm.put(val,hm.getOrDefault(val,0)+1);
 
-        while(hm.size()>2){
-            int lval=fruits[l];
-            hm.put(lval,hm.get(lval)-1);
-            if(hm.get(lval)==0){
-                hm.remove(lval);
+
+    public static boolean fun(HashMap<Character,Integer>hms,HashMap<Character,Integer>hmp){
+        if(hms.size()!=hmp.size()){
+            return false;
+        }
+        for(char key:hms.keySet()){
+            if(!hmp.containsKey(key)){
+                return false;
+            }
+            int a=hms.get(key);
+            int b=hmp.get(key);
+            if(a!=b){
+                return false;
+            }
+        }
+        return true;
+
+    }
+    //
+    public static void main(String[] args) {
+        String s="abab";
+        String p="ab";
+        HashMap<Character,Integer> hms=new HashMap<>();
+        HashMap<Character,Integer> hmp=new HashMap<>();
+         for(int i=0;i<p.length();i++){
+              char ch=p.charAt(i);
+              hmp.put(ch,hmp.getOrDefault(ch,0)+1);
+    
+         }
+
+         List<Integer> ans=new ArrayList<>();
+    int k=p.length();
+    int n=s.length();
+    int l=0;
+    for(int r=0;r<n;r++){
+        char ch=s.charAt(r);
+        hms.put(ch,hms.getOrDefault(ch,0)+1);
+        if(r-l==k){
+            char chl=s.charAt(l);
+            hms.put(chl,hms.get(chl)-1);
+            if(hms.get(chl)==0){
+                hms.remove(chl);
             }
             l++;
         }
-            ans=Math.max(ans,r-l+1);
+
+        if(r-l+1==k){
+            boolean valid=fun(hms,hmp);
+            if(valid){
+                ans.add(l);
+            }
+
         }
-        return ans;
-        
     }
-    public static void main(String[] args) {
-        int fruits[]={0,1,2,2};
-        int result=totalFruit(fruits);
-        System.out.println(result);
-    }
+    System.out.println(ans);
+
+}
 }
