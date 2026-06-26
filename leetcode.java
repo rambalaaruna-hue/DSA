@@ -415,63 +415,93 @@
 
 
 //Leetcode -438
-import java.util.*;
-public class leetcode{
+// import java.util.*;
+// public class leetcode{
 
 
-    public static boolean fun(HashMap<Character,Integer>hms,HashMap<Character,Integer>hmp){
-        if(hms.size()!=hmp.size()){
-            return false;
-        }
-        for(char key:hms.keySet()){
-            if(!hmp.containsKey(key)){
-                return false;
-            }
-            int a=hms.get(key);
-            int b=hmp.get(key);
-            if(a!=b){
-                return false;
-            }
-        }
-        return true;
+//     public static boolean fun(HashMap<Character,Integer>hms,HashMap<Character,Integer>hmp){
+//         if(hms.size()!=hmp.size()){
+//             return false;
+//         }
+//         for(char key:hms.keySet()){
+//             if(!hmp.containsKey(key)){
+//                 return false;
+//             }
+//             int a=hms.get(key);
+//             int b=hmp.get(key);
+//             if(a!=b){
+//                 return false;
+//             }
+//         }
+//         return true;
 
-    }
-    public static void main(String[] args) {
-        String s="abab";
-        String p="ab";
-        HashMap<Character,Integer> hms=new HashMap<>();
-        HashMap<Character,Integer> hmp=new HashMap<>();
-         for(int i=0;i<p.length();i++){
-              char ch=p.charAt(i);
-              hmp.put(ch,hmp.getOrDefault(ch,0)+1);
+//     }
+//     public static void main(String[] args) {
+//         String s="abab";
+//         String p="ab";
+//         HashMap<Character,Integer> hms=new HashMap<>();
+//         HashMap<Character,Integer> hmp=new HashMap<>();
+//          for(int i=0;i<p.length();i++){
+//               char ch=p.charAt(i);
+//               hmp.put(ch,hmp.getOrDefault(ch,0)+1);
     
-         }
+//          }
 
-         List<Integer> ans=new ArrayList<>();
-    int k=p.length();
-    int n=s.length();
-    int l=0;
-    for(int r=0;r<n;r++){
-        char ch=s.charAt(r);
-        hms.put(ch,hms.getOrDefault(ch,0)+1);
-        if(r-l==k){
-            char chl=s.charAt(l);
-            hms.put(chl,hms.get(chl)-1);
-            if(hms.get(chl)==0){
-                hms.remove(chl);
-            }
+//          List<Integer> ans=new ArrayList<>();
+//     int k=p.length();
+//     int n=s.length();
+//     int l=0;
+//     for(int r=0;r<n;r++){
+//         char ch=s.charAt(r);
+//         hms.put(ch,hms.getOrDefault(ch,0)+1);
+//         if(r-l==k){
+//             char chl=s.charAt(l);
+//             hms.put(chl,hms.get(chl)-1);
+//             if(hms.get(chl)==0){
+//                 hms.remove(chl);
+//             }
+//             l++;
+//         }
+
+//         if(r-l+1==k){
+//             boolean valid=fun(hms,hmp);
+//             if(valid){
+//                 ans.add(l);
+//             }
+
+//         }
+//     }
+//     System.out.println(ans);
+
+// }
+// }
+
+
+//Leetcode-209
+public class leetcode{
+    public static int minSubArrayLen(int target, int[] nums) {
+        int l=0;
+        int temp=0;
+        int ans=Integer.MAX_VALUE;
+        for(int r=0;r<nums.length;r++){
+            temp+=nums[r];
+        while(temp>=target){
+            ans=Math.min(ans,r-l+1);
+            temp-=nums[l];
             l++;
         }
-
-        if(r-l+1==k){
-            boolean valid=fun(hms,hmp);
-            if(valid){
-                ans.add(l);
-            }
-
         }
+        if(ans==Integer.MAX_VALUE){
+            return 0;
+        }
+        return ans;
+        
     }
-    System.out.println(ans);
-
-}
+    public static void main(String[] args) {
+        int nums[]={1,4,4};
+        int target=4;
+        int result=minSubArrayLen(target,nums);
+        System.out.println(result);
+        
+    }
 }
