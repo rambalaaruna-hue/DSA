@@ -19,27 +19,29 @@
 
 
 //Number of subarrays with atmost k odd numbers
-public class VariableSliding {
-    public static void main(String[] args) {
-        int arr[]={1,2,4,3,8};
-        int l=0;
-        int temp=0;
-        int ans=0;
-        int k=1;
-        for(int r=0;r<arr.length;r++){
-            if(arr[r]%2 != 0){
-                temp++;
-            }
-            while(temp>k){
-                if(arr[l]% 2 != 0){
-                  temp--;
-                }
+// public class VariableSliding {
+//     public static void main(String[] args) {
+//         int arr[]={1,2,4,3,8};
+//         int l=0;
+//         int temp=0;
+//         int ans=0;
+//         int k=1;
+//         for(int r=0;r<arr.length;r++){
+//             if(arr[r]%2 != 0){
+//                 temp++;
+//             }
+//             while(temp>k){
+//                 if(arr[l]% 2 != 0){
+//                   temp--;
+//                 }
                 
-                l++;
-            }
-            System.out.println(" l "+ l +" r "+ r);
-            ans+=r-l+1;
-        }
-        System.out.println(ans);
-    }
-}
+//                 l++;
+//             }
+//             System.out.println(" l "+ l +" r "+ r);
+//             ans+=r-l+1;
+//         }
+//         System.out.println(ans);
+//     }
+// }
+
+

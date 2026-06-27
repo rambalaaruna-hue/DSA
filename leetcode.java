@@ -478,30 +478,62 @@
 
 
 //Leetcode-209
+// public class leetcode{
+//     public static int minSubArrayLen(int target, int[] nums) {
+//         int l=0;
+//         int temp=0;
+//         int ans=Integer.MAX_VALUE;
+//         for(int r=0;r<nums.length;r++){
+//             temp+=nums[r];
+//         while(temp>=target){
+//             ans=Math.min(ans,r-l+1);
+//             temp-=nums[l];
+//             l++;
+//         }
+//         }
+//         if(ans==Integer.MAX_VALUE){
+//             return 0;
+//         }
+//         return ans;
+        
+//     }
+//     public static void main(String[] args) {
+//         int nums[]={1,4,4};
+//         int target=4;
+//         int result=minSubArrayLen(target,nums);
+//         System.out.println(result);
+        
+//     }
+// }
+
+
+
+//Leetcode-1248
 public class leetcode{
-    public static int minSubArrayLen(int target, int[] nums) {
+    public static int atmostK(int[] nums,int k){
         int l=0;
         int temp=0;
-        int ans=Integer.MAX_VALUE;
+        int ans=0;
         for(int r=0;r<nums.length;r++){
-            temp+=nums[r];
-        while(temp>=target){
-            ans=Math.min(ans,r-l+1);
-            temp-=nums[l];
-            l++;
-        }
-        }
-        if(ans==Integer.MAX_VALUE){
-            return 0;
+            if(nums[r]%2 != 0){
+                temp++;
+            }
+            while(temp>k){
+                if(nums[l]%2 != 0){
+                    temp--;
+                }
+                l++;
+            }
+            ans+=r-l+1;
+            
         }
         return ans;
-        
+
     }
     public static void main(String[] args) {
-        int nums[]={1,4,4};
-        int target=4;
-        int result=minSubArrayLen(target,nums);
-        System.out.println(result);
-        
+        int nums[]={1,1,2,1,1};
+        int k=3;
+        int finalAns=atmostK(nums,k)-atmostK(nums,k-1);
+        System.out.println(finalAns);
     }
 }
