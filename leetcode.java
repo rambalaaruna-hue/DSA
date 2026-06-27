@@ -540,32 +540,55 @@
 
 
 //Leetcode-930:Binary SubArrays With Sum
+// public class leetcode{
+//     public static int atmostK(int[] nums,int goal){
+//         if(goal<0){
+//             return 0;
+//         }
+//         int l=0;
+//         int temp=0;
+//         int ans=0;
+//         for(int r=0;r<nums.length;r++){
+//             if(nums[r]==1){
+//                 temp++;
+//             }
+//             while(temp>goal){
+//                 if(nums[l]==1){
+//                     temp--;
+//                 }
+//                 l++;
+//             }
+//             ans+=r-l+1;
+//         }
+//         return ans;
+//     }
+//     public static void main(String[] args) {
+//         int[] nums={0,0,0,0,0};
+//         int goal=0;
+//         int finalAns=atmostK(nums,goal)-atmostK(nums,goal-1);
+//         System.out.println(finalAns);
+//     }
+// }
+
+
+//Leetcode-80
 public class leetcode{
-    public static int atmostK(int[] nums,int goal){
-        if(goal<0){
-            return 0;
-        }
-        int l=0;
-        int temp=0;
-        int ans=0;
-        for(int r=0;r<nums.length;r++){
-            if(nums[r]==1){
-                temp++;
+    public static int removeDuplicates(int[] nums){
+        int k=2;
+        for(int i=2;i<nums.length;i++){
+            if(nums[i] != nums[k-2]){
+                nums[k]=nums[i];
+                k++;
             }
-            while(temp>goal){
-                if(nums[l]==1){
-                    temp--;
-                }
-                l++;
-            }
-            ans+=r-l+1;
         }
-        return ans;
+        return k;
     }
     public static void main(String[] args) {
-        int[] nums={0,0,0,0,0};
-        int goal=0;
-        int finalAns=atmostK(nums,goal)-atmostK(nums,goal-1);
-        System.out.println(finalAns);
+        int[] nums={1,1,2,2,3};
+        int k=removeDuplicates(nums);
+        System.out.println(k);
+        for(int i=0;i<k;i++){
+            System.out.println(nums[i]);
+        }
     }
 }
