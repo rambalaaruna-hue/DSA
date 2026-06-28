@@ -572,23 +572,57 @@
 
 
 //Leetcode-80
+// public class leetcode{
+//     public static int removeDuplicates(int[] nums){
+//         int k=2;
+//         for(int i=2;i<nums.length;i++){
+//             if(nums[i] != nums[k-2]){
+//                 nums[k]=nums[i];
+//                 k++;
+//             }
+//         }
+//         return k;
+//     }
+//     public static void main(String[] args) {
+//         int[] nums={1,1,2,2,3};
+//         int k=removeDuplicates(nums);
+//         System.out.println(k);
+//         for(int i=0;i<k;i++){
+//             System.out.println(nums[i]);
+//         }
+//     }
+// }
+
+
+
+//Leetcode-412
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class leetcode{
-    public static int removeDuplicates(int[] nums){
-        int k=2;
-        for(int i=2;i<nums.length;i++){
-            if(nums[i] != nums[k-2]){
-                nums[k]=nums[i];
-                k++;
+    public static  List<String> fizzBuzz(int n) {
+        List<String> li=new ArrayList<>();
+        for(int i=1;i<=n;i++){
+            if(i%3 == 0 && i%5 == 0){
+                li.add("FizzBuzz");
+            }
+            else if(i%3 == 0){
+                li.add("Fizz");
+            }
+            else if(i%5 == 0){
+                li.add("Buzz");
+            }
+            else{
+                li.add(String.valueOf(i));
             }
         }
-        return k;
+        return li;
+
+        
     }
     public static void main(String[] args) {
-        int[] nums={1,1,2,2,3};
-        int k=removeDuplicates(nums);
-        System.out.println(k);
-        for(int i=0;i<k;i++){
-            System.out.println(nums[i]);
-        }
+        int n=15;
+        System.out.println(fizzBuzz(n));
     }
 }
