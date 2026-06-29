@@ -629,26 +629,52 @@
 
 
 //Leetcode-643
+// public class leetcode{
+//     public static double findMaxAverage(int[] nums, int k) {
+//         int l=0;
+//         int temp=0;
+//         double ans = -Double.MAX_VALUE;
+//         for(int r=0;r<nums.length;r++){
+//             temp+=nums[r];
+//             if(r-l == k){
+//                 temp-=nums[l];
+//                 l++;
+//             }
+//             if(r-l+1 == k){
+//                 ans=Math.max(ans,(double)temp/k);
+//             }
+//         }
+//         return ans;
+//     }
+//     public static void main(String[] args) {
+//         int[] nums={8,3,-2,-5,3,4};
+//         int k=3;
+//         System.out.println(findMaxAverage(nums,k));
+//     }
+// }
+
+
+//Leetcode-387
+
+import java.util.HashMap;
+
 public class leetcode{
-    public static double findMaxAverage(int[] nums, int k) {
-        int l=0;
-        int temp=0;
-        double ans = -Double.MAX_VALUE;
-        for(int r=0;r<nums.length;r++){
-            temp+=nums[r];
-            if(r-l == k){
-                temp-=nums[l];
-                l++;
-            }
-            if(r-l+1 == k){
-                ans=Math.max(ans,(double)temp/k);
+    public static int firstUniqChar(String s) {
+        HashMap<Character,Integer> hm=new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            hm.put(ch,hm.getOrDefault(ch,0)+1);
+        }
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(hm.get(ch) == 1){
+                return i;
             }
         }
-        return ans;
+        return -1;
     }
     public static void main(String[] args) {
-        int[] nums={8,3,-2,-5,3,4};
-        int k=3;
-        System.out.println(findMaxAverage(nums,k));
+        String s="leetcodeproblems";
+        System.out.println(firstUniqChar(s));
     }
 }
