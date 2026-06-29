@@ -597,32 +597,58 @@
 
 //Leetcode-412
 
-import java.util.ArrayList;
-import java.util.List;
+// import java.util.ArrayList;
+// import java.util.List;
 
-public class leetcode{
-    public static  List<String> fizzBuzz(int n) {
-        List<String> li=new ArrayList<>();
-        for(int i=1;i<=n;i++){
-            if(i%3 == 0 && i%5 == 0){
-                li.add("FizzBuzz");
-            }
-            else if(i%3 == 0){
-                li.add("Fizz");
-            }
-            else if(i%5 == 0){
-                li.add("Buzz");
-            }
-            else{
-                li.add(String.valueOf(i));
-            }
-        }
-        return li;
+// public class leetcode{
+//     public static  List<String> fizzBuzz(int n) {
+//         List<String> li=new ArrayList<>();
+//         for(int i=1;i<=n;i++){
+//             if(i%3 == 0 && i%5 == 0){
+//                 li.add("FizzBuzz");
+//             }
+//             else if(i%3 == 0){
+//                 li.add("Fizz");
+//             }
+//             else if(i%5 == 0){
+//                 li.add("Buzz");
+//             }
+//             else{
+//                 li.add(String.valueOf(i));
+//             }
+//         }
+//         return li;
 
         
+//     }
+//     public static void main(String[] args) {
+//         int n=15;
+//         System.out.println(fizzBuzz(n));
+//     }
+// }
+
+
+//Leetcode-643
+public class leetcode{
+    public static double findMaxAverage(int[] nums, int k) {
+        int l=0;
+        int temp=0;
+        double ans = -Double.MAX_VALUE;
+        for(int r=0;r<nums.length;r++){
+            temp+=nums[r];
+            if(r-l == k){
+                temp-=nums[l];
+                l++;
+            }
+            if(r-l+1 == k){
+                ans=Math.max(ans,(double)temp/k);
+            }
+        }
+        return ans;
     }
     public static void main(String[] args) {
-        int n=15;
-        System.out.println(fizzBuzz(n));
+        int[] nums={8,3,-2,-5,3,4};
+        int k=3;
+        System.out.println(findMaxAverage(nums,k));
     }
 }
