@@ -656,25 +656,72 @@
 
 //Leetcode-387
 
-import java.util.HashMap;
+// import java.util.HashMap;
 
+// public class leetcode{
+//     public static int firstUniqChar(String s) {
+//         HashMap<Character,Integer> hm=new HashMap<>();
+//         for(int i=0;i<s.length();i++){
+//             char ch=s.charAt(i);
+//             hm.put(ch,hm.getOrDefault(ch,0)+1);
+//         }
+//         for(int i=0;i<s.length();i++){
+//             char ch=s.charAt(i);
+//             if(hm.get(ch) == 1){
+//                 return i;
+//             }
+//         }
+//         return -1;
+//     }
+//     public static void main(String[] args) {
+//         String s="leetcodeproblems";
+//         System.out.println(firstUniqChar(s));
+//     }
+// }
+
+
+//Leetcode-13
 public class leetcode{
-    public static int firstUniqChar(String s) {
-        HashMap<Character,Integer> hm=new HashMap<>();
-        for(int i=0;i<s.length();i++){
-            char ch=s.charAt(i);
-            hm.put(ch,hm.getOrDefault(ch,0)+1);
+    public static int romanToInt(String s) {
+    int ans=0;
+    int num=0;
+      for(int i=s.length()-1;i>=0;i--){
+        switch (s.charAt(i)){
+            case 'I':
+            num=1;
+            break;
+            case 'V':
+            num=5;
+            break;
+            case 'X':
+            num=10;
+            break;
+            case 'L':
+            num=50;
+            break;
+            case 'C':
+            num=100;
+            break;
+            case 'D':
+            num=500;
+            break;
+            case 'M':
+            num=1000;
+            break;
+
         }
-        for(int i=0;i<s.length();i++){
-            char ch=s.charAt(i);
-            if(hm.get(ch) == 1){
-                return i;
-            }
+        if(4*num < ans){
+            ans-=num;
         }
-        return -1;
+        else{
+            ans+=num;
+        }
+        
     }
-    public static void main(String[] args) {
-        String s="leetcodeproblems";
-        System.out.println(firstUniqChar(s));
-    }
+    return ans;
+}
+public static void main(String[] args) {
+    String s="XIV";
+    System.out.println(romanToInt(s));
+}
 }
