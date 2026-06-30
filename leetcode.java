@@ -729,33 +729,65 @@
 
 //Leetcode-992
 
-import java.util.HashMap;
+// import java.util.HashMap;
 
+// public class leetcode{
+//     public static int atmostK(int[] nums,int k){
+//         int l = 0;
+//         int ans = 0;
+//         HashMap<Integer,Integer> hm = new HashMap<>();
+//         for(int r = 0;r < nums.length;r++){
+//             int val = nums[r];
+//             hm.put(val,hm.getOrDefault(val,0)+1);
+
+//             while(hm.size()>k){
+//                 int lval=nums[l];
+//                 hm.put(lval,hm.get(lval)-1);
+//                 if(hm.get(lval) == 0){
+//                     hm.remove(lval);
+//                 }
+//                 l++;
+//             }
+//             ans+=r-l+1;
+//         }
+//         return ans;
+//     }
+//     public static void main(String[] args) {
+//         int[] nums={1,2,1,2,3};
+//         int k=2;
+//         int finalAns = atmostK(nums,k)-atmostK(nums,k-1);
+//         System.out.println(finalAns);
+//     }
+// }
+
+
+//Leetcode-704
 public class leetcode{
-    public static int atmostK(int[] nums,int k){
+    public static  int search(int[] nums, int target) {
         int l = 0;
-        int ans = 0;
-        HashMap<Integer,Integer> hm = new HashMap<>();
-        for(int r = 0;r < nums.length;r++){
-            int val = nums[r];
-            hm.put(val,hm.getOrDefault(val,0)+1);
-
-            while(hm.size()>k){
-                int lval=nums[l];
-                hm.put(lval,hm.get(lval)-1);
-                if(hm.get(lval) == 0){
-                    hm.remove(lval);
-                }
-                l++;
+        int r = nums.length - 1;
+        int ans = -1;
+        while(l <= r){
+            int mid = l + (r - l)/2;
+            if(nums[mid] == target){
+                ans = mid;
+                break;
             }
-            ans+=r-l+1;
+            else if(nums[mid] > target){
+                r = mid - 1;
+            }
+            else{
+                l = mid + 1;
+            }
         }
         return ans;
+        
     }
     public static void main(String[] args) {
-        int[] nums={1,2,1,2,3};
-        int k=2;
-        int finalAns = atmostK(nums,k)-atmostK(nums,k-1);
-        System.out.println(finalAns);
+        int[] nums={4,5,6,9,10,12};
+        int target = 9;
+        System.out.println(search(nums,target));
+
+        
     }
 }
