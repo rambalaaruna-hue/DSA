@@ -681,47 +681,81 @@
 
 
 //Leetcode-13
-public class leetcode{
-    public static int romanToInt(String s) {
-    int ans=0;
-    int num=0;
-      for(int i=s.length()-1;i>=0;i--){
-        switch (s.charAt(i)){
-            case 'I':
-            num=1;
-            break;
-            case 'V':
-            num=5;
-            break;
-            case 'X':
-            num=10;
-            break;
-            case 'L':
-            num=50;
-            break;
-            case 'C':
-            num=100;
-            break;
-            case 'D':
-            num=500;
-            break;
-            case 'M':
-            num=1000;
-            break;
+// public class leetcode{
+//     public static int romanToInt(String s) {
+//     int ans=0;
+//     int num=0;
+//       for(int i=s.length()-1;i>=0;i--){
+//         switch (s.charAt(i)){
+//             case 'I':
+//             num=1;
+//             break;
+//             case 'V':
+//             num=5;
+//             break;
+//             case 'X':
+//             num=10;
+//             break;
+//             case 'L':
+//             num=50;
+//             break;
+//             case 'C':
+//             num=100;
+//             break;
+//             case 'D':
+//             num=500;
+//             break;
+//             case 'M':
+//             num=1000;
+//             break;
 
-        }
-        if(4*num < ans){
-            ans-=num;
-        }
-        else{
-            ans+=num;
-        }
+//         }
+//         if(4*num < ans){
+//             ans-=num;
+//         }
+//         else{
+//             ans+=num;
+//         }
         
+//     }
+//     return ans;
+// }
+// public static void main(String[] args) {
+//     String s="XIV";
+//     System.out.println(romanToInt(s));
+// }
+// }
+
+
+//Leetcode-992
+
+import java.util.HashMap;
+
+public class leetcode{
+    public static int atmostK(int[] nums,int k){
+        int l = 0;
+        int ans = 0;
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int r = 0;r < nums.length;r++){
+            int val = nums[r];
+            hm.put(val,hm.getOrDefault(val,0)+1);
+
+            while(hm.size()>k){
+                int lval=nums[l];
+                hm.put(lval,hm.get(lval)-1);
+                if(hm.get(lval) == 0){
+                    hm.remove(lval);
+                }
+                l++;
+            }
+            ans+=r-l+1;
+        }
+        return ans;
     }
-    return ans;
-}
-public static void main(String[] args) {
-    String s="XIV";
-    System.out.println(romanToInt(s));
-}
+    public static void main(String[] args) {
+        int[] nums={1,2,1,2,3};
+        int k=2;
+        int finalAns = atmostK(nums,k)-atmostK(nums,k-1);
+        System.out.println(finalAns);
+    }
 }
