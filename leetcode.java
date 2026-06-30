@@ -762,32 +762,88 @@
 
 
 //Leetcode-704
+// public class leetcode{
+//     public static  int search(int[] nums, int target) {
+//         int l = 0;
+//         int r = nums.length - 1;
+//         int ans = -1;
+//         while(l <= r){
+//             int mid = l + (r - l)/2;
+//             if(nums[mid] == target){
+//                 ans = mid;
+//                 break;
+//             }
+//             else if(nums[mid] > target){
+//                 r = mid - 1;
+//             }
+//             else{
+//                 l = mid + 1;
+//             }
+//         }
+//         return ans;
+        
+//     }
+//     public static void main(String[] args) {
+//         int[] nums={4,5,6,9,10,12};
+//         int target = 9;
+//         System.out.println(search(nums,target));
+
+        
+//     }
+// }
+
+
+
+//Leetcode-34
+import java.util.Arrays;
 public class leetcode{
-    public static  int search(int[] nums, int target) {
+    public static int left(int[] nums,int target){
         int l = 0;
-        int r = nums.length - 1;
-        int ans = -1;
-        while(l <= r){
-            int mid = l + (r - l)/2;
-            if(nums[mid] == target){
-                ans = mid;
-                break;
-            }
-            else if(nums[mid] > target){
-                r = mid - 1;
-            }
-            else{
+        int r = nums.length-1;
+        while(l<=r){
+           int  mid = l + (r - l)/2;
+            if(nums[mid] >= target){
+                r = mid -1;
+            }else{
                 l = mid + 1;
             }
         }
-        return ans;
-        
+        if(l >= nums.length){
+            return -1;
+        }
+        else if(nums[l] != target){
+            return -1;
+        }
+        return l;
+    }
+
+    public static int right(int[] nums,int target){
+        int l = 0;
+        int r = nums.length-1;
+        while(l<=r){
+           int mid = l + (r - l)/2;
+            if(nums[mid] > target){
+                r = mid -1;
+            }else{
+                l = mid + 1;
+            }
+        }
+        if(r < 0){
+            return -1;
+        }
+        else if(nums[r] != target){
+            return -1;
+        }
+        return r;
     }
     public static void main(String[] args) {
-        int[] nums={4,5,6,9,10,12};
-        int target = 9;
-        System.out.println(search(nums,target));
+        int[] nums={5,7,7,8,8,9};
+        int target=8;
+        int[] arr=new int[2];
+        arr[0]=left(nums,target);
+        arr[1]=right(nums,target);
 
+        System.out.println(Arrays.toString(arr));
         
     }
 }

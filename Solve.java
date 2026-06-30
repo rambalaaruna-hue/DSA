@@ -857,31 +857,83 @@
 
 
 
-public class Solve{
-    public static void main(String[] args) {
-        int arr[]={1,1,1,0,0,0,0};
-        int l=0;
-        int k=2;
-        int cnt0=0;
-        int cnt1=0;
-        int ans=0;
-        for(int r=0;r<arr.length;r++){
-            if(arr[r]== 0){
-                cnt0++;
-            }else{
-                cnt1++;
-            }
-            while(Math.min(cnt0,cnt1)>k){
-                if(arr[l]== 0){
-                    cnt0--;
-                }else{
-                    cnt1--;
-                }
-                l++;
-            }
-            ans=Math.max(ans,r-l+1);
-        }
-        System.out.println(ans);
-    }
-}
+// public class Solve{
+//     public static void main(String[] args) {
+//         int arr[]={1,1,1,0,0,0,0};
+//         int l=0;
+//         int k=2;
+//         int cnt0=0;
+//         int cnt1=0;
+//         int ans=0;
+//         for(int r=0;r<arr.length;r++){
+//             if(arr[r]== 0){
+//                 cnt0++;
+//             }else{
+//                 cnt1++;
+//             }
+//             while(Math.min(cnt0,cnt1)>k){
+//                 if(arr[l]== 0){
+//                     cnt0--;
+//                 }else{
+//                     cnt1--;
+//                 }
+//                 l++;
+//             }
+//             ans=Math.max(ans,r-l+1);
+//         }
+//         System.out.println(ans);
+//     }
+// }
+
+
+// public class Solve{
+//     public static int bs(int[] arr, int target){
+//         int l = 0;
+//         int r = arr.length - 1;
+//         while(l<=r){
+//               int mid = (l+r)/2;
+//              if(arr[mid] >= target){
+//                 r = mid-1;
+//             }
+//             else{
+//                 l = mid+1;
+//             }
+//         }
+//         return l;
+
+//     }
+//     public static void main(String[] args) {
+//         int[] arr={1,3,5,7,9};
+//         System.out.println(bs(arr,10));
+        
+//     }
+// }
+
+
+
+// public class Solve{
+//     public static char bs(char[] arr, char target){
+//         int l = 0;
+//         int r = arr.length - 1;
+//         while(l<=r){
+//               int mid = (l+r)/2;
+//              if(arr[mid] >= target){
+//                 r = mid-1;
+//             }
+//             else{
+//                 l = mid+1;
+//             }
+//         }
+//         if(r == -1){
+//             return 'a';
+//         }
+//         return arr[r];
+
+//     }
+//     public static void main(String[] args) {
+//         char[] arr={'c','e','g','k','y'};
+//         System.out.println(bs(arr,'b'));
+        
+//     }
+// }
 
