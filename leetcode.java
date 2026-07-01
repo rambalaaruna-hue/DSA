@@ -850,30 +850,72 @@
 
 
 //Leetcode-2529
+// public class leetcode{
+//     public static int LeftMost(int[] nums,int target){
+//         int l=0;
+//         int r=nums.length-1;
+//         while(l<=r){
+//         int mid=l+(r-l)/2;
+//         if(nums[mid] >= target ){
+//             r=mid-1;
+//         }
+//         else{
+//             l=mid+1;
+//         }
+//         }
+//         return l;
+        
+//     }
+
+//     public static void main(String[] args) {
+//         int[] nums={-2,-1,0,1,3,5,6};
+//         int n=nums.length;
+//         int negatives= LeftMost(nums,0);
+//          int one=LeftMost(nums,1);
+//          int positives = n-one;
+//           System.out.println(Math.max(negatives,positives));
+        
+//     }
+// }
+
+
+//Leetcode-1283
 public class leetcode{
-    public static int LeftMost(int[] nums,int target){
-        int l=0;
-        int r=nums.length-1;
-        while(l<=r){
-        int mid=l+(r-l)/2;
-        if(nums[mid] >= target ){
-            r=mid-1;
+    public static boolean isPossible(int[] nums,int threshold,int k){
+        for(int i=0;i<nums.length;i++){
+            int upper = nums[i]/k;
+            if(nums[i]%k != 0){
+                upper++;
+
+            }
+             threshold -= upper;
+             if( threshold < 0){
+            return false;
+             }
         }
-        else{
-            l=mid+1;
-        }
+        
+        return true;
+    }
+    public static int smallestDivisor(int[] nums, int threshold) {
+        int l = 1;
+        int r = (int)Math.pow(10,6);
+        while(l <= r){
+            int k = l + (r - l)/2;
+            if(isPossible(nums,threshold,k)){
+                r = k - 1;
+            }else{
+                l = k + 1;
+            }
         }
         return l;
         
     }
-
     public static void main(String[] args) {
-        int[] nums={-2,-1,0,1,3,5,6};
-        int n=nums.length;
-        int negatives= LeftMost(nums,0);
-         int one=LeftMost(nums,1);
-         int positives = n-one;
-          System.out.println(Math.max(negatives,positives));
+        int[] nums={1,2,5,9};
+        int threshold=6;
+        System.out.println(smallestDivisor(nums,threshold));
+        
+        
         
     }
 }
