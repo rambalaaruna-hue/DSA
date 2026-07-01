@@ -795,55 +795,85 @@
 
 
 //Leetcode-34
-import java.util.Arrays;
+// import java.util.Arrays;
+// public class leetcode{
+//     public static int left(int[] nums,int target){
+//         int l = 0;
+//         int r = nums.length-1;
+//         while(l<=r){
+//            int  mid = l + (r - l)/2;
+//             if(nums[mid] >= target){
+//                 r = mid -1;
+//             }else{
+//                 l = mid + 1;
+//             }
+//         }
+//         if(l >= nums.length){
+//             return -1;
+//         }
+//         else if(nums[l] != target){
+//             return -1;
+//         }
+//         return l;
+//     }
+
+//     public static int right(int[] nums,int target){
+//         int l = 0;
+//         int r = nums.length-1;
+//         while(l<=r){
+//            int mid = l + (r - l)/2;
+//             if(nums[mid] > target){
+//                 r = mid -1;
+//             }else{
+//                 l = mid + 1;
+//             }
+//         }
+//         if(r < 0){
+//             return -1;
+//         }
+//         else if(nums[r] != target){
+//             return -1;
+//         }
+//         return r;
+//     }
+//     public static void main(String[] args) {
+//         int[] nums={5,7,7,8,8,9};
+//         int target=8;
+//         int[] arr=new int[2];
+//         arr[0]=left(nums,target);
+//         arr[1]=right(nums,target);
+
+//         System.out.println(Arrays.toString(arr));
+        
+//     }
+// }
+
+
+//Leetcode-2529
 public class leetcode{
-    public static int left(int[] nums,int target){
-        int l = 0;
-        int r = nums.length-1;
+    public static int LeftMost(int[] nums,int target){
+        int l=0;
+        int r=nums.length-1;
         while(l<=r){
-           int  mid = l + (r - l)/2;
-            if(nums[mid] >= target){
-                r = mid -1;
-            }else{
-                l = mid + 1;
-            }
+        int mid=l+(r-l)/2;
+        if(nums[mid] >= target ){
+            r=mid-1;
         }
-        if(l >= nums.length){
-            return -1;
+        else{
+            l=mid+1;
         }
-        else if(nums[l] != target){
-            return -1;
         }
         return l;
+        
     }
 
-    public static int right(int[] nums,int target){
-        int l = 0;
-        int r = nums.length-1;
-        while(l<=r){
-           int mid = l + (r - l)/2;
-            if(nums[mid] > target){
-                r = mid -1;
-            }else{
-                l = mid + 1;
-            }
-        }
-        if(r < 0){
-            return -1;
-        }
-        else if(nums[r] != target){
-            return -1;
-        }
-        return r;
-    }
     public static void main(String[] args) {
-        int[] nums={5,7,7,8,8,9};
-        int target=8;
-        int[] arr=new int[2];
-        arr[0]=left(nums,target);
-        arr[1]=right(nums,target);
-
-        System.out.println(Arrays.toString(arr));
+        int[] nums={-2,-1,0,1,3,5,6};
+        int n=nums.length;
+        int negatives= LeftMost(nums,0);
+         int one=LeftMost(nums,1);
+         int positives = n-one;
+          System.out.println(Math.max(negatives,positives));
         
     }
 }
