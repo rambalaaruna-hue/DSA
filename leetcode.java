@@ -880,42 +880,82 @@
 
 
 //Leetcode-1283
-public class leetcode{
-    public static boolean isPossible(int[] nums,int threshold,int k){
-        for(int i=0;i<nums.length;i++){
-            int upper = nums[i]/k;
-            if(nums[i]%k != 0){
-                upper++;
+// public class leetcode{
+//     public static boolean isPossible(int[] nums,int threshold,int k){
+//         for(int i=0;i<nums.length;i++){
+//             int upper = nums[i]/k;
+//             if(nums[i]%k != 0){
+//                 upper++;
 
-            }
-             threshold -= upper;
-             if( threshold < 0){
-            return false;
-             }
-        }
+//             }
+//              threshold -= upper;
+//              if( threshold < 0){
+//             return false;
+//              }
+//         }
         
+//         return true;
+//     }
+//     public static int smallestDivisor(int[] nums, int threshold) {
+//         int l = 1;
+//         int r = (int)Math.pow(10,6);
+//         while(l <= r){
+//             int k = l + (r - l)/2;
+//             if(isPossible(nums,threshold,k)){
+//                 r = k - 1;
+//             }else{
+//                 l = k + 1;
+//             }
+//         }
+//         return l;
+        
+//     }
+//     public static void main(String[] args) {
+//         int[] nums={1,2,5,9};
+//         int threshold=6;
+//         System.out.println(smallestDivisor(nums,threshold));
+        
+        
+        
+//     }
+// }
+
+
+//Leetcode-875
+public class leetcode{
+     public static boolean isPossible(int[] piles,int h,int k){
+        for(int i=0;i<piles.length;i++){
+            int time = piles[i]/k;
+            if(piles[i]%k != 0){
+                time++;
+            }
+            h -= time;
+            if(h < 0){
+                return false;
+            }
+        }
         return true;
     }
-    public static int smallestDivisor(int[] nums, int threshold) {
+    public static int minEatingSpeed(int[] piles, int h) {
         int l = 1;
-        int r = (int)Math.pow(10,6);
-        while(l <= r){
+        int r = 1000000000; 
+         while(l <= r){
             int k = l + (r - l)/2;
-            if(isPossible(nums,threshold,k)){
+            if(isPossible(piles,h,k)){
                 r = k - 1;
             }else{
                 l = k + 1;
             }
         }
         return l;
+
         
     }
     public static void main(String[] args) {
-        int[] nums={1,2,5,9};
-        int threshold=6;
-        System.out.println(smallestDivisor(nums,threshold));
-        
-        
+        int[] piles = {3,6,7,11};
+        int h = 8;
+        System.out.println(minEatingSpeed(piles,h));
+
         
     }
 }
