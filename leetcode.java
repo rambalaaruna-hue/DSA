@@ -922,40 +922,90 @@
 
 
 //Leetcode-875
+// public class leetcode{
+//      public static boolean isPossible(int[] piles,int h,int k){
+//         for(int i=0;i<piles.length;i++){
+//             int time = piles[i]/k;
+//             if(piles[i]%k != 0){
+//                 time++;
+//             }
+//             h -= time;
+//             if(h < 0){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+//     public static int minEatingSpeed(int[] piles, int h) {
+//         int l = 1;
+//         int r = 1000000000; 
+//          while(l <= r){
+//             int k = l + (r - l)/2;
+//             if(isPossible(piles,h,k)){
+//                 r = k - 1;
+//             }else{
+//                 l = k + 1;
+//             }
+//         }
+//         return l;
+
+        
+//     }
+//     public static void main(String[] args) {
+//         int[] piles = {3,6,7,11};
+//         int h = 8;
+//         System.out.println(minEatingSpeed(piles,h));
+
+        
+//     }
+// }
+
+
+//Leetcode-1482
 public class leetcode{
-     public static boolean isPossible(int[] piles,int h,int k){
-        for(int i=0;i<piles.length;i++){
-            int time = piles[i]/k;
-            if(piles[i]%k != 0){
-                time++;
+    public static boolean isPossible(int[] bloomDay, int m, int k, int day){
+        int took = 0;
+        int bouquets = 0;
+        for(int i=0;i<bloomDay.length;i++){
+            if(bloomDay[i] <= day){
+                took +=1;
+               if(took == k){
+                bouquets += 1;
+                took = 0;
+                }
             }
-            h -= time;
-            if(h < 0){
-                return false;
+            else{
+                took = 0;
+            }
+            if(bouquets >= m){
+                return true;
             }
         }
-        return true;
+        return false;
     }
-    public static int minEatingSpeed(int[] piles, int h) {
+
+     public static int minDays(int[] bloomDay, int m, int k) {
+        if((bloomDay.length < (long)m*k)){
+            return -1;
+        }else{
         int l = 1;
-        int r = 1000000000; 
-         while(l <= r){
-            int k = l + (r - l)/2;
-            if(isPossible(piles,h,k)){
-                r = k - 1;
+        int r = 1000000000;
+        while(l <= r){
+            int day = l +(r - l)/2;
+            if(isPossible(bloomDay,m,k,day)){
+                r = day - 1;
             }else{
-                l = k + 1;
+                l = day + 1;
             }
         }
         return l;
-
-        
+        }
     }
     public static void main(String[] args) {
-        int[] piles = {3,6,7,11};
-        int h = 8;
-        System.out.println(minEatingSpeed(piles,h));
-
-        
+        int[] bloomDay = {7,7,7,7,12,7,7};
+        int m = 2;
+        int k = 3;
+        System.out.println(minDays(bloomDay,m,k));
+    
     }
 }
