@@ -962,50 +962,94 @@
 
 
 //Leetcode-1482
+// public class leetcode{
+//     public static boolean isPossible(int[] bloomDay, int m, int k, int day){
+//         int took = 0;
+//         int bouquets = 0;
+//         for(int i=0;i<bloomDay.length;i++){
+//             if(bloomDay[i] <= day){
+//                 took +=1;
+//                if(took == k){
+//                 bouquets += 1;
+//                 took = 0;
+//                 }
+//             }
+//             else{
+//                 took = 0;
+//             }
+//             if(bouquets >= m){
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
+
+//      public static int minDays(int[] bloomDay, int m, int k) {
+//         if((bloomDay.length < (long)m*k)){
+//             return -1;
+//         }else{
+//         int l = 1;
+//         int r = 1000000000;
+//         while(l <= r){
+//             int day = l +(r - l)/2;
+//             if(isPossible(bloomDay,m,k,day)){
+//                 r = day - 1;
+//             }else{
+//                 l = day + 1;
+//             }
+//         }
+//         return l;
+//         }
+//     }
+//     public static void main(String[] args) {
+//         int[] bloomDay = {7,7,7,7,12,7,7};
+//         int m = 2;
+//         int k = 3;
+//         System.out.println(minDays(bloomDay,m,k));
+    
+//     }
+// }
+
+
+//Leetcode-1011
 public class leetcode{
-    public static boolean isPossible(int[] bloomDay, int m, int k, int day){
-        int took = 0;
-        int bouquets = 0;
-        for(int i=0;i<bloomDay.length;i++){
-            if(bloomDay[i] <= day){
-                took +=1;
-               if(took == k){
-                bouquets += 1;
-                took = 0;
-                }
+    public static  boolean isPossible(int[] weights, int days ,int k){
+        int temp = 0;
+        for(int i=0;i<weights.length;i++){
+            int val = weights[i];
+            if(val > k){
+                return false;
             }
-            else{
-                took = 0;
+            if(temp + val > k){
+                days -= 1;
+                temp = 0;
+                 if(days <= 0){
+                return false;
+                 }
             }
-            if(bouquets >= m){
-                return true;
-            }
+            temp += val;
         }
-        return false;
+        return true;
     }
 
-     public static int minDays(int[] bloomDay, int m, int k) {
-        if((bloomDay.length < (long)m*k)){
-            return -1;
-        }else{
+    public static int shipWithinDays(int[] weights, int days) {
         int l = 1;
-        int r = 1000000000;
+        int r = Integer.MAX_VALUE;
         while(l <= r){
-            int day = l +(r - l)/2;
-            if(isPossible(bloomDay,m,k,day)){
-                r = day - 1;
+            int mid = l + (r - l)/2;
+            if(isPossible(weights,days,mid)){
+                r = mid - 1;
             }else{
-                l = day + 1;
+                l = mid + 1;
             }
         }
         return l;
-        }
+        
     }
     public static void main(String[] args) {
-        int[] bloomDay = {7,7,7,7,12,7,7};
-        int m = 2;
-        int k = 3;
-        System.out.println(minDays(bloomDay,m,k));
-    
+        int[] weights = {3,2,2,4,1,4};
+        int days = 3;
+        System.out.println(shipWithinDays(weights,days));
+        
     }
 }
