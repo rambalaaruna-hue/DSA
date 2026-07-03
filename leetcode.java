@@ -1056,40 +1056,85 @@
 
 
 //Leetcode-2064
+// public class leetcode{
+//     public static boolean isPossible(int n,int[] quantities,int limit){
+//         int temp = 0;
+//         for(int i = 0;i < quantities.length;i++){
+//             temp = quantities[i]/limit;
+//             if(quantities[i]%limit != 0){
+//                 temp++;
+//             }
+//             n -= temp;
+//             if(n < 0){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+
+//     public static int minimizedMaximum(int n, int[] quantities) {
+//         int l = 1;
+//         int r = 100000;
+//         while(l <= r){
+//             int mid  = l + (r - l)/2;
+//             if(isPossible(n,quantities,mid)){
+//                 r = mid - 1;
+//             }else{
+//                 l = mid + 1;
+//             }
+//         }
+//         return l;
+        
+//     }
+//     public static void main(String[] args) {
+//         int[] quantities = {15,10,10};
+//         int n = 7;
+//         System.out.println(minimizedMaximum(n,quantities));
+        
+//     }
+// }
+
+
+//Leetcode-1552
+
+import java.util.Arrays;
+
 public class leetcode{
-    public static boolean isPossible(int n,int[] quantities,int limit){
-        int temp = 0;
-        for(int i = 0;i < quantities.length;i++){
-            temp = quantities[i]/limit;
-            if(quantities[i]%limit != 0){
-                temp++;
+    public static boolean isPossible(int[] position, int m ,int k){
+        int prev = position[0];
+        m -= 1;
+        for(int i = 1;i < position.length;i++){
+            int val = position[i];
+            if(val - prev >= k){
+                m -= 1;
+                prev = val;
             }
-            n -= temp;
-            if(n < 0){
-                return false;
+            if(m <= 0){
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
-    public static int minimizedMaximum(int n, int[] quantities) {
+    public static int maxDistance(int[] position, int m) {
+        Arrays.sort(position);
         int l = 1;
-        int r = 100000;
-        while(l <= r){
-            int mid  = l + (r - l)/2;
-            if(isPossible(n,quantities,mid)){
-                r = mid - 1;
-            }else{
+        int r = 1000000000;
+        while( l <= r){
+            int mid = l + (r - l)/2;
+            if(isPossible(position,m,mid)){
                 l = mid + 1;
+            }else{
+                r = mid - 1;
             }
         }
-        return l;
+        return r;
         
     }
     public static void main(String[] args) {
-        int[] quantities = {15,10,10};
-        int n = 7;
-        System.out.println(minimizedMaximum(n,quantities));
+        int[] position = {1,2,3,4,7};
+        int m = 3;
+        System.out.println(maxDistance(position,m));
         
     }
 }
