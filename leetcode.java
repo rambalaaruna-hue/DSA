@@ -1012,32 +1012,72 @@
 
 
 //Leetcode-1011
+// public class leetcode{
+//     public static  boolean isPossible(int[] weights, int days ,int k){
+//         int temp = 0;
+//         for(int i=0;i<weights.length;i++){
+//             int val = weights[i];
+//             if(val > k){
+//                 return false;
+//             }
+//             if(temp + val > k){
+//                 days -= 1;
+//                 temp = 0;
+//                  if(days <= 0){
+//                 return false;
+//                  }
+//             }
+//             temp += val;
+//         }
+//         return true;
+//     }
+
+//     public static int shipWithinDays(int[] weights, int days) {
+//         int l = 1;
+//         int r = Integer.MAX_VALUE;
+//         while(l <= r){
+//             int mid = l + (r - l)/2;
+//             if(isPossible(weights,days,mid)){
+//                 r = mid - 1;
+//             }else{
+//                 l = mid + 1;
+//             }
+//         }
+//         return l;
+        
+//     }
+//     public static void main(String[] args) {
+//         int[] weights = {3,2,2,4,1,4};
+//         int days = 3;
+//         System.out.println(shipWithinDays(weights,days));
+        
+//     }
+// }
+
+
+//Leetcode-2064
 public class leetcode{
-    public static  boolean isPossible(int[] weights, int days ,int k){
+    public static boolean isPossible(int n,int[] quantities,int limit){
         int temp = 0;
-        for(int i=0;i<weights.length;i++){
-            int val = weights[i];
-            if(val > k){
+        for(int i = 0;i < quantities.length;i++){
+            temp = quantities[i]/limit;
+            if(quantities[i]%limit != 0){
+                temp++;
+            }
+            n -= temp;
+            if(n < 0){
                 return false;
             }
-            if(temp + val > k){
-                days -= 1;
-                temp = 0;
-                 if(days <= 0){
-                return false;
-                 }
-            }
-            temp += val;
         }
         return true;
     }
 
-    public static int shipWithinDays(int[] weights, int days) {
+    public static int minimizedMaximum(int n, int[] quantities) {
         int l = 1;
-        int r = Integer.MAX_VALUE;
+        int r = 100000;
         while(l <= r){
-            int mid = l + (r - l)/2;
-            if(isPossible(weights,days,mid)){
+            int mid  = l + (r - l)/2;
+            if(isPossible(n,quantities,mid)){
                 r = mid - 1;
             }else{
                 l = mid + 1;
@@ -1047,9 +1087,9 @@ public class leetcode{
         
     }
     public static void main(String[] args) {
-        int[] weights = {3,2,2,4,1,4};
-        int days = 3;
-        System.out.println(shipWithinDays(weights,days));
+        int[] quantities = {15,10,10};
+        int n = 7;
+        System.out.println(minimizedMaximum(n,quantities));
         
     }
 }
