@@ -1184,36 +1184,83 @@
 
 
 //Leetcode-2226
-public class leetcode{
-    public static  boolean isPossible(int[] candies,long k,int m){
-        for(int  i = 0;i < candies.length;i++){
-            int val = candies[i];
-            int temp = val/m;
-            k -= temp;
-            if(k <= 0){
-                return true;
-            }
-        }
-        return false;
-    }
+// public class leetcode{
+//     public static  boolean isPossible(int[] candies,long k,int m){
+//         for(int  i = 0;i < candies.length;i++){
+//             int val = candies[i];
+//             int temp = val/m;
+//             k -= temp;
+//             if(k <= 0){
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
 
-    public static int maximumCandies(int[] candies, long k) {
-        int l = 1;
-        int r = 10000000;
+//     public static int maximumCandies(int[] candies, long k) {
+//         int l = 1;
+//         int r = 10000000;
+//         while(l <= r){
+//             int mid = l + (r - l)/2;
+//             if(isPossible(candies,k,mid)){
+//                 l = mid + 1;
+//             }else{
+//                 r = mid - 1;
+//             }
+//         } 
+//         return r;
+//     }
+//     public static void main(String[] args) {
+//         int[] candies = {5,8,6};
+//         long k = 3;
+//         System.out.println(maximumCandies(candies, k));
+        
+//     }
+// }
+
+
+
+//Leetcode-410
+public class leetcode{
+    public static boolean isPossible(int[] nums,int k,int sum){
+        int temp = 0;
+        k -= 1;
+        for(int i = 0;i < nums.length;i++){
+            int val = nums[i];
+            if(val > sum){
+                return false;
+            }
+            if(temp + val > sum){
+                k -= 1;
+                temp = 0;
+            }
+            temp += val;
+            if(k < 0){
+                return false;
+            }
+            
+        }
+        return true;
+    }
+        
+        public static int splitArray(int[] nums, int k) {
+        int l = 0;
+        int r = 1000000000;
         while(l <= r){
             int mid = l + (r - l)/2;
-            if(isPossible(candies,k,mid)){
-                l = mid + 1;
-            }else{
+            if(isPossible(nums,k,mid)){
                 r = mid - 1;
+            }else{
+                l = mid + 1;
             }
-        } 
-        return r;
+        }
+        return l;
     }
+        
     public static void main(String[] args) {
-        int[] candies = {5,8,6};
-        long k = 3;
-        System.out.println(maximumCandies(candies, k));
+        int[] nums = {7,2,5,10,8};
+        int k = 2;
+        System.out.println(splitArray(nums, k));
         
     }
 }
