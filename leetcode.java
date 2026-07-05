@@ -1266,47 +1266,87 @@
 // }
 
 
+//Leetcode-242
+
+// import java.util.HashMap;
+
+// public class leetcode{
+//      public static boolean fun(HashMap<Character,Integer> hms,HashMap<Character,Integer> hmt){
+//         if(hms.size() != hmt.size()){
+//             return false;
+//         }
+//         for(char key:hms.keySet()){
+//             if(!hmt.containsKey(key)){
+//                 return false;
+//             }
+//             int a = hms.get(key);
+//             int b = hmt.get(key);
+//             if(a != b){
+//                 return false;
+//             }
+//         }
+//             return true;
+//     }
+
+//     public static  boolean isAnagram(String s, String t) {
+//         HashMap<Character,Integer> hms = new HashMap<>();
+//         HashMap<Character,Integer> hmt = new HashMap<>();
+//         for(int i = 0; i< s.length();i++){
+//             char ch = s.charAt(i);
+//             hms.put(ch,hms.getOrDefault(ch,0)+1);
+//         }
+//         for(int i = 0; i< t.length();i++){
+//             char ch = t.charAt(i);
+//             hmt.put(ch,hmt.getOrDefault(ch,0)+1);
+//         }
+//         // System.out.println(hms);
+//         // System.out.println(hmt);
+//          boolean ans = fun(hms,hmt);
+//          return ans;  
+//     }
+//     public static void main(String[] args) {
+//         String s = "anagram";
+//         String t = "nagaram";
+//         System.out.println(isAnagram(s,t));
+//     }
+// }
+
+
+
 //Leetcode-
 
 import java.util.HashMap;
 
 public class leetcode{
-     public static boolean fun(HashMap<Character,Integer> hms,HashMap<Character,Integer> hmt){
-        if(hms.size() != hmt.size()){
-            return false;
-        }
-        for(char key:hms.keySet()){
-            if(!hmt.containsKey(key)){
-                return false;
-            }
-            int a = hms.get(key);
-            int b = hmt.get(key);
-            if(a != b){
+    public static boolean fun(HashMap<Character,Integer> hm1,HashMap<Character,Integer> hm2){
+        for(char key:hm1.keySet()){
+
+            if(!hm2.containsKey(key) || hm2.get(key) < hm1.get(key)){
                 return false;
             }
         }
             return true;
     }
 
-    public static  boolean isAnagram(String s, String t) {
-        HashMap<Character,Integer> hms = new HashMap<>();
-        HashMap<Character,Integer> hmt = new HashMap<>();
-        for(int i = 0; i< s.length();i++){
-            char ch = s.charAt(i);
-            hms.put(ch,hms.getOrDefault(ch,0)+1);
+    public static boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character,Integer> hm1 = new HashMap<>();
+        HashMap<Character,Integer> hm2 = new HashMap<>();
+        for(int i = 0; i< ransomNote.length();i++){
+            char ch = ransomNote.charAt(i);
+            hm1.put(ch,hm1.getOrDefault(ch,0)+1);
         }
-        for(int i = 0; i< t.length();i++){
-            char ch = t.charAt(i);
-            hmt.put(ch,hmt.getOrDefault(ch,0)+1);
+        for(int i = 0; i< magazine.length();i++){
+            char ch = magazine.charAt(i);
+            hm2.put(ch,hm2.getOrDefault(ch,0)+1);
         }
-        // System.out.println(hms);
-        // System.out.println(hmt);
-         boolean ans = fun(hms,hmt);
+         boolean ans = fun(hm1,hm2);
          return ans;  
+        
     }
     public static void main(String[] args) {
-        String s = "anagram";
-        String t = "nagaram";
-        System.out.println(isAnagram(s,t));
+        String ransomNote = "aa";
+        String magazine = "ab";
+        System.out.println(canConstruct(ransomNote, magazine));
+        
     }
 }
