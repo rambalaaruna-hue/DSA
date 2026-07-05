@@ -1221,46 +1221,92 @@
 
 
 //Leetcode-410
-public class leetcode{
-    public static boolean isPossible(int[] nums,int k,int sum){
-        int temp = 0;
-        k -= 1;
-        for(int i = 0;i < nums.length;i++){
-            int val = nums[i];
-            if(val > sum){
-                return false;
-            }
-            if(temp + val > sum){
-                k -= 1;
-                temp = 0;
-            }
-            temp += val;
-            if(k < 0){
-                return false;
-            }
+// public class leetcode{
+//     public static boolean isPossible(int[] nums,int k,int sum){
+//         int temp = 0;
+//         k -= 1;
+//         for(int i = 0;i < nums.length;i++){
+//             int val = nums[i];
+//             if(val > sum){
+//                 return false;
+//             }
+//             if(temp + val > sum){
+//                 k -= 1;
+//                 temp = 0;
+//             }
+//             temp += val;
+//             if(k < 0){
+//                 return false;
+//             }
             
-        }
-        return true;
-    }
+//         }
+//         return true;
+//     }
         
-        public static int splitArray(int[] nums, int k) {
-        int l = 0;
-        int r = 1000000000;
-        while(l <= r){
-            int mid = l + (r - l)/2;
-            if(isPossible(nums,k,mid)){
-                r = mid - 1;
-            }else{
-                l = mid + 1;
+//         public static int splitArray(int[] nums, int k) {
+//         int l = 0;
+//         int r = 1000000000;
+//         while(l <= r){
+//             int mid = l + (r - l)/2;
+//             if(isPossible(nums,k,mid)){
+//                 r = mid - 1;
+//             }else{
+//                 l = mid + 1;
+//             }
+//         }
+//         return l;
+//     }
+        
+//     public static void main(String[] args) {
+//         int[] nums = {7,2,5,10,8};
+//         int k = 2;
+//         System.out.println(splitArray(nums, k));
+        
+//     }
+// }
+
+
+//Leetcode-
+
+import java.util.HashMap;
+
+public class leetcode{
+     public static boolean fun(HashMap<Character,Integer> hms,HashMap<Character,Integer> hmt){
+        if(hms.size() != hmt.size()){
+            return false;
+        }
+        for(char key:hms.keySet()){
+            if(!hmt.containsKey(key)){
+                return false;
+            }
+            int a = hms.get(key);
+            int b = hmt.get(key);
+            if(a != b){
+                return false;
             }
         }
-        return l;
+            return true;
     }
-        
+
+    public static  boolean isAnagram(String s, String t) {
+        HashMap<Character,Integer> hms = new HashMap<>();
+        HashMap<Character,Integer> hmt = new HashMap<>();
+        for(int i = 0; i< s.length();i++){
+            char ch = s.charAt(i);
+            hms.put(ch,hms.getOrDefault(ch,0)+1);
+        }
+        for(int i = 0; i< t.length();i++){
+            char ch = t.charAt(i);
+            hmt.put(ch,hmt.getOrDefault(ch,0)+1);
+        }
+        // System.out.println(hms);
+        // System.out.println(hmt);
+         boolean ans = fun(hms,hmt);
+         return ans;  
+    }
     public static void main(String[] args) {
-        int[] nums = {7,2,5,10,8};
-        int k = 2;
-        System.out.println(splitArray(nums, k));
-        
+        String s = "anagram";
+        String t = "nagaram";
+        System.out.println(isAnagram(s,t));
     }
 }
