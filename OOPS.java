@@ -68,9 +68,10 @@
 // }
 
 
+//Access Modifiers
 class ChaiShop{
-    String branchName;
-    int cupsSold;
+    private String branchName;
+    private int cupsSold;
     int pricePerCup;
     public ChaiShop(String branchName,int cupsSold,int pricePerCup){
         this.branchName=branchName;
@@ -81,7 +82,7 @@ class ChaiShop{
     public void order(int n){
         cupsSold=n;
     }
-    public void display(){
+    private void display(){
         System.out.println(branchName);
         System.out.println(cupsSold);
         System.out.println(pricePerCup);
@@ -95,16 +96,24 @@ public class OOPS {
     public static void main(String[] args) {
         ChaiShop branch1 = new ChaiShop("Hyd",0,7);
         branch1.order(9);
-        branch1.display();
+        // System.out.println(branch1.branchName);
+        // System.out.println(branch1.cupsSold);
+        // branch1.display();
+        branch1.revenue();
+
+        // branch1.display();
          //branch1.revenue();
       
 
         ChaiShop branch2 = new ChaiShop("Chennai",8,9);
-        branch2.order(10);
-        branch2.display();
-        //branch2.revenue();
+        // branch2.order(10);
+        // branch2.display();
+        // //branch2.revenue();
          
 
     }
     
 }
+
+
+
