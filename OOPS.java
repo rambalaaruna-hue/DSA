@@ -187,42 +187,79 @@
 
 
 //Method Overloading
+// class Owner{
+//     String ownerName="Aruna";
+//     int age = 20;
+//     int num = 123;
+//     public void fun(){
+//         System.out.println(1);
+//     }
+
+//     public void fun(int a){
+//         System.out.println(2);
+//     }
+//     public void fun(int a,int b){
+//         System.out.println(3);
+//     }
+//     public void fun(int a,String b){
+//         System.out.println(4);
+//     }
+//     public void fun(String a,int b){
+//         System.out.println(5);
+//     }
+
+
+// }
+
+// public class OOPS {
+//     public static void main(String[] args) {
+//          Owner o=new Owner();
+//          o.fun();
+//          o.fun(5);
+//          o.fun(4,8);
+//          o.fun(5,"abc");
+//          o.fun("aruna",3);
+
+//     }
+    
+// }
+
+
+
+//Method Overriding
 class Owner{
     String ownerName="Aruna";
     int age = 20;
     int num = 123;
     public void fun(){
-        System.out.println(1);
-    }
-
-    public void fun(int a){
         System.out.println(2);
-    }
-    public void fun(int a,int b){
-        System.out.println(3);
-    }
-    public void fun(int a,String b){
-        System.out.println(4);
-    }
-    public void fun(String a,int b){
-        System.out.println(5);
     }
 
 
 }
+class ChaiShop extends Owner{ 
+     String branchName;
+     int cupsSold;
+    int pricePerCup;
+    public ChaiShop(String branchName,int cupsSold,int pricePerCup){
+        this.branchName=branchName;
+        this.cupsSold=cupsSold;
+        this.pricePerCup=pricePerCup;
 
-public class OOPS {
-    public static void main(String[] args) {
-         Owner o=new Owner();
-         o.fun();
-         o.fun(5);
-         o.fun(4,8);
-         o.fun(5,"abc");
-         o.fun("aruna",3);
-
+    }
+    public void fun(){
+        System.out.println(1);
     }
     
 }
 
 
+public class OOPS {
+    public static void main(String[] args) {
+        ChaiShop branch1 = new ChaiShop("Hyd",0,7);
+        //System.out.println(branch1.num);
+        branch1.fun();
 
+    }
+    
+}
