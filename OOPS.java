@@ -227,6 +227,42 @@
 
 
 //Method Overriding
+// class Owner{
+//     String ownerName="Aruna";
+//     int age = 20;
+//     int num = 123;
+//     public void fun(){
+//         System.out.println(2);
+//     }
+
+
+// }
+
+// class ChaiShop extends Owner{ 
+//      String branchName="Hyd";
+
+//     @Override
+//     public void fun(){
+//         System.out.println(1);
+//     }
+    
+// }
+
+
+
+// public class OOPS {
+//     public static void main(String[] args) {
+//          ChaiShop branch1 = new ChaiShop("Hyd",0,7);
+//         //System.out.println(branch1.num);
+//          branch1.fun();
+
+
+//     }
+    
+// }
+
+
+//Multilevel Inheritance
 class Owner{
     String ownerName="Aruna";
     int age = 20;
@@ -237,28 +273,32 @@ class Owner{
 
 
 }
-class ChaiShop extends Owner{ 
-     String branchName;
-     int cupsSold;
-    int pricePerCup;
-    public ChaiShop(String branchName,int cupsSold,int pricePerCup){
-        this.branchName=branchName;
-        this.cupsSold=cupsSold;
-        this.pricePerCup=pricePerCup;
 
-    }
+class ChaiShop extends Owner{ 
+     String branchName="Hyd";
+
+    @Override
     public void fun(){
         System.out.println(1);
     }
     
 }
 
+class Room extends ChaiShop{
+    int roomNo = 3;
+    int noOfChairs = 2;
+}
+
 
 public class OOPS {
     public static void main(String[] args) {
-        ChaiShop branch1 = new ChaiShop("Hyd",0,7);
-        //System.out.println(branch1.num);
-        branch1.fun();
+        // ChaiShop branch1 = new ChaiShop("Hyd",0,7);
+        // //System.out.println(branch1.num);
+        // branch1.fun();
+        Room r=new Room();
+        System.out.println(r.roomNo);
+        System.out.println(r.branchName);
+        System.out.println(r.ownerName);
 
     }
     
