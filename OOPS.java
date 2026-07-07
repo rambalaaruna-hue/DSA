@@ -307,31 +307,53 @@
 
 
 //Multiple Inheritance
-interface Owner{
-    String ownerName="Aruna";
-    int age = 20;
-    int num = 123;
+// interface Owner{
+//     String ownerName="Aruna";
+//     int age = 20;
+//     int num = 123;
+//     void display();
 
+// }
 
-}
+// interface ChaiPowderSupplier{
+//     String supplierName = "bob";
+// }
 
-interface ChaiPowderSupplier{
-    String supplierName = "bob";
-}
-
-class ChaiShop  implements Owner,ChaiPowderSupplier{ 
-     String branchName="Hyd";
+// class ChaiShop  implements Owner,ChaiPowderSupplier{ 
+//      String branchName="Hyd";
+//      public void display(){
+//         System.err.println(1);
+//      }
 
     
-}
+// }
 
 
 
-public class OOPS {
-    public static void main(String[] args) {
-         ChaiShop branch1 = new ChaiShop();
-      System.out.println(branch1.supplierName);
+// public class OOPS {
+//     public static void main(String[] args) {
+//          ChaiShop branch1 = new ChaiShop();
+//       System.out.println(branch1.supplierName);
+//       branch1.display();
 
+//     }
+    
+// }
+
+
+class ChaiShop{
+    String branchName = "Vizag";
+    class Shop{
+        String shopName = "Kkd";
     }
-    
+}
+public class OOPS{
+    public static void main(String[] args) {
+        ChaiShop branch1 = new ChaiShop();
+        System.out.println(branch1.branchName);
+
+        ChaiShop.Shop sh = branch1.new Shop();
+        System.out.println(sh.shopName);
+        
+    }
 }
