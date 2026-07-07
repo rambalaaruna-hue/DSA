@@ -444,16 +444,43 @@
 
 
 //final-keyword
-class A{
-   final  int b = 2;
-//    A(){
-//     b = 3;
-//    }
+// class A{
+//    final  int b = 2;
+// //    A(){
+// //     b = 3;
+// //    }
+// }
+// public class OOPS{
+//     public static void main(String[] args) {
+//         A obj = new A();
+//         //obj.b =5;
+//         System.out.println(obj.b);
+//     }
+// }
+
+
+//Abstract
+ abstract class A{
+   int b = 2;
+
+   abstract void fun();
+
+   void bun(){
+    System.out.println("Hii");
+   }
+}
+class D extends A{
+    @Override
+    void fun(){
+        System.err.println("Hello");
+    }
+
 }
 public class OOPS{
     public static void main(String[] args) {
-        A obj = new A();
-        //obj.b =5;
-        System.out.println(obj.b);
+        // A obj = new A();
+        D d = new D();
+        System.out.println(d.b);
+        d.fun();
     }
 }
