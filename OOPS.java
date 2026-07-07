@@ -341,19 +341,61 @@
 // }
 
 
+// class ChaiShop{
+//     String branchName = "Vizag";
+//     class Shop{
+//         String shopName = "Kkd";
+//     }
+// }
+// public class OOPS{
+//     public static void main(String[] args) {
+//         ChaiShop branch1 = new ChaiShop();
+//         System.out.println(branch1.branchName);
+
+//         ChaiShop.Shop sh = branch1.new Shop();
+//         System.out.println(sh.shopName);
+        
+//     }
+// }
+
+
+//static-variable
+// class ChaiShop{
+//     static int cnt = 3;
+//     int cnt2 = 0;
+// }
+// public class OOPS{
+//     public static void main(String[] args) {
+//         ChaiShop a = new ChaiShop();
+//         ChaiShop b = new ChaiShop();
+//         System.out.println(a.cnt);
+//         a.cnt++;
+//         System.out.println(a.cnt);
+//         System.out.println(b.cnt);
+//         ChaiShop.cnt++;
+//         ChaiShop.cnt++;
+//         System.out.println(a.cnt);
+//         a.cnt2++;
+//         a.cnt2++;
+//         System.out.println(a.cnt2);
+//         b.cnt2--;
+//         System.out.println(b.cnt2);
+        
+//     }
+// }
+
+
+//Statisc -methods
 class ChaiShop{
-    String branchName = "Vizag";
-    class Shop{
-        String shopName = "Kkd";
+    static int cnt = 3;
+    static void fun(){
+        System.out.println(1);
+        System.out.println(cnt);
     }
 }
 public class OOPS{
     public static void main(String[] args) {
-        ChaiShop branch1 = new ChaiShop();
-        System.out.println(branch1.branchName);
-
-        ChaiShop.Shop sh = branch1.new Shop();
-        System.out.println(sh.shopName);
+    ChaiShop.fun();
         
     }
 }

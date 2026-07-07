@@ -13,7 +13,7 @@ public class mypack2 {
         mypack1 m2=new mypack1();
         //m2.disp();
         System.out.println(m2.Public);
-        System.out.println(m2.Protected);
+        //System.out.println(m2.Protected);
         
     }
     
