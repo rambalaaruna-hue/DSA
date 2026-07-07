@@ -386,16 +386,74 @@
 
 
 //Statisc -methods
-class ChaiShop{
-    static int cnt = 3;
-    static void fun(){
-        System.out.println(1);
-        System.out.println(cnt);
-    }
+// class ChaiShop{
+//     static int cnt = 3;
+//     static void fun(){
+//         System.out.println(1);
+//         System.out.println(cnt);
+//     }
+// }
+// public class OOPS{
+//     public static void main(String[] args) {
+//     ChaiShop.fun();
+        
+//     }
+// }
+
+
+//Static methods cannot use in Inheritance
+// class Parent{
+//     int k = 1;
+//     int m = 1;
+    
+//     static void fun(){
+//         System.out.println(1);
+//     }
+// }
+// class Child extends Parent{
+//     int k = 2;
+//     int m = 2;
+//     static void fun(){
+//         System.out.println(2);
+//     }
+// }
+// public class OOPS{
+//     public static void main(String[] args) {
+//     //  Parent p = new Parent();
+//     //  p.fun();
+//     // System.out.println(p.k);
+//     //  System.out.println(p.m);
+//     // p.fun();
+
+//     // Child c = new Child();
+//     //  System.out.println(c.k);
+//     //   System.out.println(c.m);
+//     //   c.fun();
+
+//       Parent pc = new Child();
+//     //   System.out.println(pc.k);//1--->Left side--->variables,static methods
+//     //   System.out.println(pc.m);//1---->Right side---->methods
+//       pc.fun();//2
+//       Child c = new Child();
+//       c.fun();
+
+        
+//     }
+// }
+
+
+
+//final-keyword
+class A{
+   final  int b = 2;
+//    A(){
+//     b = 3;
+//    }
 }
 public class OOPS{
     public static void main(String[] args) {
-    ChaiShop.fun();
-        
+        A obj = new A();
+        //obj.b =5;
+        System.out.println(obj.b);
     }
 }
