@@ -401,7 +401,7 @@
 // }
 
 
-//Static methods cannot use in Inheritance
+//No Inheritance with static members
 // class Parent{
 //     int k = 1;
 //     int m = 1;
@@ -460,27 +460,69 @@
 
 
 //Abstract
- abstract class A{
-   int b = 2;
+//  abstract class A{
+//    int b = 2;
 
-   abstract void fun();
+//    abstract void fun();
+   
 
-   void bun(){
-    System.out.println("Hii");
-   }
-}
-class D extends A{
-    @Override
-    void fun(){
-        System.err.println("Hello");
+//    void bun(){
+//     System.out.println("Hii");
+//    }
+// }
+// class D extends A{
+//     @Override
+//     void fun(){
+//         System.err.println("Hello");
+//     }
+
+// }
+// public class OOPS{
+//     public static void main(String[] args) {
+//         // A obj = new A();
+//         D d = new D();
+//         System.out.println(d.b);
+//         d.fun();
+//     }
+// }
+
+
+
+//Encapsulation
+// class Employee{
+//     private String name = "Aruna";
+//     //getter method
+//     public String getName(){
+//         return name;
+//     }
+//     //setter method
+//     public void setName(String newName){
+//         name = newName;
+//     }
+// }
+// public class OOPS{
+//     public static void main(String[] args) {
+//         Employee e = new Employee();
+//         e.setName("Anjali");
+//         System.err.println(e.getName());
+//     }
+// }
+
+
+//
+class Parent{
+    Parent(int a){
+        System.out.println("Parent "+ a);
     }
-
+}
+class Child extends Parent{
+    Child(int b){
+        super(b);
+        System.out.println("Child");
+    }
 }
 public class OOPS{
     public static void main(String[] args) {
-        // A obj = new A();
-        D d = new D();
-        System.out.println(d.b);
-        d.fun();
+       Child c = new Child(5);
     }
 }
