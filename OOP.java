@@ -181,3 +181,53 @@
 
 
 
+//Non-access Modifiers:In Java, non-access modifiers are special keywords used to change the default behavior of classes, methods, variables, or blocks.
+//Static:Binds a variable or method directly to the class itself rather than to individual instances (objects). Memory is allocated only once for a static variable. You can call a static method directly using the class name without creating an object.
+// class A{
+//     static int cnt = 0;
+// }
+// public class OOP{
+//     public static void main(String[] args) {
+//         A.cnt++;
+//         A a = new A();
+//         a.cnt++;
+//         System.out.println(a.cnt);
+
+//     }
+// }
+
+
+//final-Imposes immutability or restricts inheritance.Applied to a variable, it makes it a constant (it cannot be reassigned).Applied to a method, it stops the method from being overridden.Applied to a class, it prevents other classes from subclassing or inheriting from it.
+// class Parent{
+//     final void disp(){
+//         System.out.println("This is a final method.");
+//     }
+    
+// }
+// class Child extends Parent{
+//     void disp(){
+//         System.out.println("Oveeriding final method");
+//     }
+// }
+// public class OOP{
+//     public static void main(String[] args) {
+//         //Compilation error:Cannot Override final method from parent
+//       Child c = new Child();
+//       c.disp();
+//     }
+// }
+
+
+
+// final class Parent{
+//     final void disp(){
+//         System.out.println("This is a final method.");
+//     }
+    
+// }
+// //cannot inherit from final class  'Parent'
+// class Child extends Parent{
+    
+// }
+
+
