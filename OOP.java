@@ -231,3 +231,76 @@
 // }
 
 
+
+//Abstract 
+// abstract class Animal{
+//      abstract void sound();
+//      void eat(){
+//         System.out.println("This Animal eats food.");
+//      }
+// }
+// class Dog extends Animal{
+//     void sound(){
+//         System.out.println("Dog barks.");
+//     }
+// }
+// public class OOP{
+//     public static void main(String[] args) {
+//         Dog myDog = new Dog();
+//         //Animal myDog = new Dog();
+//         myDog.sound();
+//         myDog.eat();
+//     }
+// }
+
+
+
+//Synchronized
+
+//class Counter{
+// private int count = 0;
+//synchronized void increment(){
+//count++
+//}  
+//}
+
+
+//volatile
+//class Example{
+// volatile boolean flag = true;
+//}
+
+
+
+//transient
+//class Test implements java.io.Serializable{
+//transient int temp;//will not be serialized
+//}
+
+
+//native
+//class Example{
+//native void display();//implementation is in native code.
+//}
+
+
+
+//Features of OOP
+//Encapsulation
+// class Employee{
+//     private String name;
+//     public String getName(){
+//         return name;
+//     }
+//     public void setName(String name){
+//         this.name = name;
+//     }
+// }
+// public class OOP{
+//     public static void main(String[] args) {
+//         Employee obj = new Employee();
+//         obj.setName("Aruna");
+//         System.out.println(obj.getName());
+//     }
+// }
+

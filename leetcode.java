@@ -1353,24 +1353,44 @@
 
 
 //Leetcode-1342
-import java.util.HashMap;
+// import java.util.HashMap;
 
+// public class leetcode{
+//     public static int numberOfSteps(int num){
+//         int count = 0;
+//         while(num > 0){
+//             if(num%2 == 0){
+//                 num /= 2;
+//             }else{
+//                 num -= 1;
+//             }
+//             count++;
+//         }
+//         return count;
+//     }
+//     public static void main(String[] args) {
+//         int num = 123;
+//         System.out.println(numberOfSteps(num));
+        
+//     }
+// }
+
+
+
+//Leetcode-2413
 public class leetcode{
-    public static int numberOfSteps(int num){
-        int count = 0;
-        while(num > 0){
-            if(num%2 == 0){
-                num /= 2;
-            }else{
-                num -= 1;
-            }
-            count++;
+    public static int smallestEvenMultiple(int n) {
+        int ans = 0;
+        if(n%2 == 0){
+            ans = n;
+        }else{
+            ans = n*2;
         }
-        return count;
+        return ans;
     }
     public static void main(String[] args) {
-        int num = 123;
-        System.out.println(numberOfSteps(num));
-        
+        int n = 5;
+        System.out.println(smallestEvenMultiple(n));
     }
 }
+
