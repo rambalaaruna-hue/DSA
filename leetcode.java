@@ -1378,19 +1378,42 @@
 
 
 //Leetcode-2413
+// public class leetcode{
+//     public static int smallestEvenMultiple(int n) {
+//         int ans = 0;
+//         if(n%2 == 0){
+//             ans = n;
+//         }else{
+//             ans = n*2;
+//         }
+//         return ans;
+//     }
+//     public static void main(String[] args) {
+//         int n = 5;
+//         System.out.println(smallestEvenMultiple(n));
+//     }
+// }
+
+
+
+//Leetcode-1480
 public class leetcode{
-    public static int smallestEvenMultiple(int n) {
-        int ans = 0;
-        if(n%2 == 0){
-            ans = n;
-        }else{
-            ans = n*2;
+    public static int[] runningSum(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        int sum = 0;
+        for(int i = 0;i < n; i++){
+            sum += nums[i];
+            ans[i]=sum;
         }
         return ans;
     }
     public static void main(String[] args) {
-        int n = 5;
-        System.out.println(smallestEvenMultiple(n));
+        int[] nums = {1,2,3,4,5};
+        int[] ans = runningSum(nums);
+        for(int i = 0;i < ans.length; i++){
+            System.out.print(ans[i] + " ");
+        }
     }
 }
 
