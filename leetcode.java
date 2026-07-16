@@ -1397,23 +1397,50 @@
 
 
 //Leetcode-1480
+// public class leetcode{
+//     public static int[] runningSum(int[] nums) {
+//         int n = nums.length;
+//         int[] ans = new int[n];
+//         int sum = 0;
+//         for(int i = 0;i < n; i++){
+//             sum += nums[i];
+//             ans[i]=sum;
+//         }
+//         return ans;
+//     }
+//     public static void main(String[] args) {
+//         int[] nums = {1,2,3,4,5};
+//         int[] ans = runningSum(nums);
+//         for(int i = 0;i < ans.length; i++){
+//             System.out.print(ans[i] + " ");
+//         }
+//     }
+// }
+
+
+
+//Leetcode-9
 public class leetcode{
-    public static int[] runningSum(int[] nums) {
-        int n = nums.length;
-        int[] ans = new int[n];
-        int sum = 0;
-        for(int i = 0;i < n; i++){
-            sum += nums[i];
-            ans[i]=sum;
+    public static boolean isPalindrome(int x) {
+        int rev = 0;
+        int num = x;
+        boolean ans = false;
+        while(x > 0){
+            int rem = x % 10;
+            rev = rev * 10 + (rem);
+            x /= 10;
+        }
+        if(num == rev){
+            ans = true;
+        }else{
+            return false;
         }
         return ans;
+        
     }
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4,5};
-        int[] ans = runningSum(nums);
-        for(int i = 0;i < ans.length; i++){
-            System.out.print(ans[i] + " ");
-        }
+        int x = 121;
+        boolean res = isPalindrome(x);
+        System.out.println(res);
     }
 }
-
