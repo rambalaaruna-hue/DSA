@@ -1420,27 +1420,47 @@
 
 
 //Leetcode-9
+// public class leetcode{
+//     public static boolean isPalindrome(int x) {
+//         int rev = 0;
+//         int num = x;
+//         boolean ans = false;
+//         while(x > 0){
+//             int rem = x % 10;
+//             rev = rev * 10 + (rem);
+//             x /= 10;
+//         }
+//         if(num == rev){
+//             ans = true;
+//         }else{
+//             return false;
+//         }
+//         return ans;
+        
+//     }
+//     public static void main(String[] args) {
+//         int x = 121;
+//         boolean res = isPalindrome(x);
+//         System.out.println(res);
+//     }
+// }
+
+
+//Leetcode-
 public class leetcode{
-    public static boolean isPalindrome(int x) {
-        int rev = 0;
-        int num = x;
-        boolean ans = false;
-        while(x > 0){
-            int rem = x % 10;
-            rev = rev * 10 + (rem);
-            x /= 10;
+     public static int removeElement(int[] nums, int val) {
+        int k = 0;
+        for(int j = 0;j < nums.length; j++){
+            if(nums[j] != val){
+                nums[k++] = nums[j];
+            }
         }
-        if(num == rev){
-            ans = true;
-        }else{
-            return false;
-        }
-        return ans;
+        return k;
         
     }
     public static void main(String[] args) {
-        int x = 121;
-        boolean res = isPalindrome(x);
-        System.out.println(res);
+        int[] nums = {3,2,2,3};
+        int val = 3;
+        System.out.println(removeElement(nums, val));
     }
 }
