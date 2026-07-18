@@ -1446,21 +1446,46 @@
 // }
 
 
-//Leetcode-
-public class leetcode{
-     public static int removeElement(int[] nums, int val) {
-        int k = 0;
-        for(int j = 0;j < nums.length; j++){
-            if(nums[j] != val){
-                nums[k++] = nums[j];
-            }
-        }
-        return k;
+//Leetcode-27
+// public class leetcode{
+//      public static int removeElement(int[] nums, int val) {
+//         int k = 0;
+//         for(int j = 0;j < nums.length; j++){
+//             if(nums[j] != val){
+//                 nums[k++] = nums[j];
+//             }
+//         }
+//         return k;
         
+//     }
+//     public static void main(String[] args) {
+//         int[] nums = {3,2,2,3};
+//         int val = 3;
+//         System.out.println(removeElement(nums, val));
+//     }
+// }
+
+
+
+//Leetcode-1979
+public class leetcode{
+    public static int findGCD(int[] nums) {
+        int small = Integer.MAX_VALUE;
+        int large = Integer.MIN_VALUE;
+        for(int i = 0;i < nums.length;i++){
+            int val = nums[i];
+            small = Math.min(small,nums[i]);
+            large = Math.max(large,nums[i]);
+        }
+        while(large != 0){
+            int remainder = small % large;
+            small = large;
+            large = remainder;
+        }
+        return small;
     }
     public static void main(String[] args) {
-        int[] nums = {3,2,2,3};
-        int val = 3;
-        System.out.println(removeElement(nums, val));
+        int nums[] = {2,8,6,10,3};
+        System.out.println(findGCD(nums));
     }
 }
