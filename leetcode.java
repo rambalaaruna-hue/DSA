@@ -1468,24 +1468,48 @@
 
 
 //Leetcode-1979
+// public class leetcode{
+//     public static int findGCD(int[] nums) {
+//         int small = Integer.MAX_VALUE;
+//         int large = Integer.MIN_VALUE;
+//         for(int i = 0;i < nums.length;i++){
+//             int val = nums[i];
+//             small = Math.min(small,nums[i]);
+//             large = Math.max(large,nums[i]);
+//         }
+//         while(large != 0){
+//             int remainder = small % large;
+//             small = large;
+//             large = remainder;
+//         }
+//         return small;
+//     }
+//     public static void main(String[] args) {
+//         int nums[] = {2,8,6,10,3};
+//         System.out.println(findGCD(nums));
+//     }
+// }
+
+
+//Leetcode-41
+
+import java.util.HashSet;
+
 public class leetcode{
-    public static int findGCD(int[] nums) {
-        int small = Integer.MAX_VALUE;
-        int large = Integer.MIN_VALUE;
+    public static int firstMissingPositive(int[] nums) {
+        HashSet<Integer> hs = new HashSet<>();
+        int missed = 1;
         for(int i = 0;i < nums.length;i++){
-            int val = nums[i];
-            small = Math.min(small,nums[i]);
-            large = Math.max(large,nums[i]);
+            hs.add(nums[i]);
         }
-        while(large != 0){
-            int remainder = small % large;
-            small = large;
-            large = remainder;
+        while(hs.contains(missed)){
+            missed++;
         }
-        return small;
+        return missed;
+        
     }
     public static void main(String[] args) {
-        int nums[] = {2,8,6,10,3};
-        System.out.println(findGCD(nums));
+        int[] nums = {2,-1,5,1};
+        System.out.println(firstMissingPositive(nums));
     }
 }
