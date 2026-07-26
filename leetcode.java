@@ -1493,23 +1493,42 @@
 
 //Leetcode-41
 
-import java.util.HashSet;
+// import java.util.HashSet;
 
-public class leetcode{
-    public static int firstMissingPositive(int[] nums) {
-        HashSet<Integer> hs = new HashSet<>();
-        int missed = 1;
-        for(int i = 0;i < nums.length;i++){
-            hs.add(nums[i]);
-        }
-        while(hs.contains(missed)){
-            missed++;
-        }
-        return missed;
+// public class leetcode{
+//     public static int firstMissingPositive(int[] nums) {
+//         HashSet<Integer> hs = new HashSet<>();
+//         int missed = 1;
+//         for(int i = 0;i < nums.length;i++){
+//             hs.add(nums[i]);
+//         }
+//         while(hs.contains(missed)){
+//             missed++;
+//         }
+//         return missed;
         
+//     }
+//     public static void main(String[] args) {
+//         int[] nums = {2,-1,5,1};
+//         System.out.println(firstMissingPositive(nums));
+//     }
+// }
+
+
+//Leetcode-342
+public class leetcode{
+    public static boolean isPowerOfFour(int n) {
+        if(n <= 0){
+            return false;
+        }
+        while(n % 4 == 0){
+            n /= 4;
+        }
+        return n == 1;
     }
     public static void main(String[] args) {
-        int[] nums = {2,-1,5,1};
-        System.out.println(firstMissingPositive(nums));
+        int n = 16;
+        System.out.println(isPowerOfFour(n));
+        
     }
 }
