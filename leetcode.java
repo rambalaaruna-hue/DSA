@@ -1516,19 +1516,37 @@
 
 
 //Leetcode-342
+// public class leetcode{
+//     public static boolean isPowerOfFour(int n) {
+//         if(n <= 0){
+//             return false;
+//         }
+//         while(n % 4 == 0){
+//             n /= 4;
+//         }
+//         return n == 1;
+//     }
+//     public static void main(String[] args) {
+//         int n = 16;
+//         System.out.println(isPowerOfFour(n));
+        
+//     }
+// }
+
+
+//Leetcode-1464
+
+import java.util.Arrays;
+
 public class leetcode{
-    public static boolean isPowerOfFour(int n) {
-        if(n <= 0){
-            return false;
-        }
-        while(n % 4 == 0){
-            n /= 4;
-        }
-        return n == 1;
+    public static  int maxProduct(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int ans = (nums[n - 1] - 1) * (nums[n - 2] - 1);
+        return ans;
     }
     public static void main(String[] args) {
-        int n = 16;
-        System.out.println(isPowerOfFour(n));
-        
+        int[] nums = {1,5,3,4};
+        System.out.println(maxProduct(nums));
     }
 }
