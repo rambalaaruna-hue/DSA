@@ -1536,17 +1536,35 @@
 
 //Leetcode-1464
 
-import java.util.Arrays;
+// import java.util.Arrays;
 
+// public class leetcode{
+//     public static  int maxProduct(int[] nums) {
+//         Arrays.sort(nums);
+//         int n = nums.length;
+//         int ans = (nums[n - 1] - 1) * (nums[n - 2] - 1);
+//         return ans;
+//     }
+//     public static void main(String[] args) {
+//         int[] nums = {1,5,3,4};
+//         System.out.println(maxProduct(nums));
+//     }
+// }
+
+
+
+//Leetcode-3014
 public class leetcode{
-    public static  int maxProduct(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        int ans = (nums[n - 1] - 1) * (nums[n - 2] - 1);
+    public static int minimumPushes(String word) {
+        int ans = 0;
+        for(int i = 0; i < word.length(); i++)
+            ans += (i / 8) + 1;
         return ans;
     }
+
     public static void main(String[] args) {
-        int[] nums = {1,5,3,4};
-        System.out.println(maxProduct(nums));
+        String word = "abcde";
+        System.out.println(minimumPushes(word));
+
     }
 }
