@@ -1553,17 +1553,42 @@
 
 
 
-//Leetcode-3014
+// //Leetcode-3014
+// public class leetcode{
+//     public static int minimumPushes(String word) {
+//         int ans = 0;
+//         for(int i = 0; i < word.length(); i++)
+//             ans += (i / 8) + 1;
+//         return ans;
+//     }
+
+//     public static void main(String[] args) {
+//         String word = "abcdef";
+//         System.out.println(minimumPushes(word));
+
+//     }
+// }
+
+
+
+//Leetcode-3016
+
+import java.util.Arrays;
+
 public class leetcode{
     public static int minimumPushes(String word) {
+        int freq[] = new int[26];
+        for(char c:word.toCharArray()) freq[c - 'a']++;
+        Arrays.sort(freq);
         int ans = 0;
-        for(int i = 0; i < word.length(); i++)
-            ans += (i / 8) + 1;
+        for(int i = 0;i < 26;i++){
+            ans += freq[25 - i] * ((i/8)+1);
+        }
         return ans;
     }
 
     public static void main(String[] args) {
-        String word = "abcde";
+        String word = "xyzxyzxyzxyz";
         System.out.println(minimumPushes(word));
 
     }
